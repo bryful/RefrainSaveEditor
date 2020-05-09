@@ -1,0 +1,20 @@
+char1 1020 328
+      1025   5   Name
+      1067  47   ShortName
+      1085  65   フレーバーテキスト
+      118C 16C   因果数
+          017E   アニマクラリティ
+          01CB   Level (byte)
+          01D0   総Level
+          0308   HP
+          030C   DP
+      
+      
+char2 1348 328
+char3 1670
+
+0x20 PLAYER NAME
+0x56 銀貨 
+0x5E MANA
+0x62 KARUMA
+0x66 REINFORCE
