@@ -197,6 +197,94 @@ namespace RefrainSaveEditor
 				}
 			}
 		}
+
+		private RefrainValue m_AnimaClarity = null;
+		public RefrainValue AnimaClarity
+		{
+			get { return m_AnimaClarity; }
+			set
+			{
+				m_AnimaClarity = value;
+				if(m_AnimaClarity != null)
+				{
+					m_AnimaClarity.Caption = "アニマクラリティ";
+					m_AnimaClarity.ValueType = ValueType.BYTE;
+					m_AnimaClarity.ValueTarget = ValueTarget.CHAR_INDEX;
+					m_AnimaClarity.Offset = 0x01CA;
+					m_AnimaClarity.SetRefrainSaveFile(this);
+				}
+			}
+		}
+		private RefrainValue m_Level = null;
+		public RefrainValue CharLevel
+		{
+			get { return m_Level; }
+			set
+			{
+				m_Level = value;
+				if(m_Level != null)
+				{
+					m_Level.Caption = "Level";
+					m_Level.ValueType = ValueType.BYTE;
+					m_Level.ValueTarget = ValueTarget.CHAR_INDEX;
+					m_Level.Offset = 0x01CB;
+					m_Level.SetRefrainSaveFile(this);
+				}
+			}
+		}
+		private RefrainValue m_FullLevel = null;
+		public RefrainValue CharFullLevel
+		{
+			get { return m_FullLevel; }
+			set
+			{
+				m_FullLevel = value;
+				if(m_FullLevel != null)
+				{
+					m_FullLevel.Caption = "総Level";
+					m_FullLevel.ValueType = ValueType.INT;
+					m_FullLevel.ValueTarget = ValueTarget.CHAR_INDEX;
+					m_FullLevel.Offset = 0x01D0;
+					m_FullLevel.SetRefrainSaveFile(this);
+				}
+			}
+		}
+		private RefrainValue m_CharHP = null;
+		public RefrainValue CharHP
+		{
+			get { return m_CharHP; }
+			set
+			{
+				m_CharHP = value;
+				if(m_CharHP != null)
+				{
+					m_CharHP.Caption = "HP";
+					m_CharHP.ValueType = ValueType.INT;
+					m_CharHP.ValueTarget = ValueTarget.CHAR_INDEX;
+					m_CharHP.Offset = 0x0308;
+					m_CharHP.SetRefrainSaveFile(this);
+				}
+			}
+		}
+		private RefrainValue m_CharDP = null;
+		public RefrainValue CharDP
+		{
+			get { return m_CharDP; }
+			set
+			{
+				m_CharDP = value;
+				if(m_CharDP != null)
+				{
+					m_CharDP.Caption = "DP";
+					m_CharDP.ValueType = ValueType.INT;
+					m_CharDP.ValueTarget = ValueTarget.CHAR_INDEX;
+					m_CharDP.Offset = 0x030C;
+					m_CharDP.SetRefrainSaveFile(this);
+				}
+			}
+		}
+
+
 		//Causal number
 		private RefrainValue m_CausalNum = null;
 		public RefrainValue CausalNum
@@ -294,16 +382,21 @@ namespace RefrainSaveEditor
 			if (m_CharName != null) { m_CharName.GetValue(); }
 			if (m_CharShortName != null) { m_CharShortName.GetValue(); }
 			if (m_CharFlavorText != null) { m_CharFlavorText.GetValue(); }
-			if (m_CausalNum != null) { m_CausalNum.GetValue(); }
+			if (m_AnimaClarity != null) { m_AnimaClarity.GetValue(); }
+			if (m_Level != null) { m_Level.GetValue(); }
+			if (m_FullLevel != null) { m_FullLevel.GetValue(); }
+			if (m_CharHP != null) { m_CharHP.GetValue(); }
+			if (m_CharDP != null) { m_CharDP.GetValue(); }
+
+
 			if (m_EXP != null) { m_EXP.GetValue(); }
 			if (m_TotalEXP != null) { m_TotalEXP.GetValue(); }
-
-			if(m_CharInfo !=null)
+			if (m_CausalNum != null) { m_CausalNum.GetValue(); }
+			
+			if(m_CharInfo!=null)
 			{
-				m_CharInfo.SuspendLayout();
-				m_CharInfo.Items.Clear();
-				m_CharInfo.Items.AddRange(GetCharInfo());
-				m_CharInfo.ResumeLayout();
+					m_CharInfo.Items.Clear();
+					m_CharInfo.Items.AddRange(GetCharInfo());
 			}
 		}
 
@@ -351,14 +444,26 @@ namespace RefrainSaveEditor
             bool ret = false;
 			OpenFileDialog dlg = new OpenFileDialog();
 			string p = "";
-			if (m_FilePath!="") p =  Path.GetDirectoryName(m_FilePath);
+			string pn = "";
+			if (m_FilePath != "")
+			{
+				p = Path.GetDirectoryName(m_FilePath);
+				pn = Path.GetFileName(m_FilePath);
+			}
+			else
+			{
+				p = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+				pn = "Refrain.CT";
+			}
 
 			if (Directory.Exists(p) == false)
 			{
 				p = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
 			}
 			dlg.InitialDirectory = p;
-			dlg.FileName = Path.GetFileName(m_FilePath);
+			dlg.FileName = pn;
+			dlg.DefaultExt = "dat";
+			dlg.Filter = "*.dat|*.dat|*.*|*.*";
 
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
@@ -394,5 +499,59 @@ namespace RefrainSaveEditor
 
             return ret;
         }
+		// *******************************************************************************************
+		public bool SaveFileDialog()
+		{
+            bool ret = false;
+			SaveFileDialog dlg = new SaveFileDialog();
+			string p = "";
+			string pn = "";
+			if (m_FilePath != "")
+			{
+				p = Path.GetDirectoryName(m_FilePath);
+				pn = Path.GetFileName(m_FilePath);
+			}
+			else
+			{
+				p = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+				pn = "Refrain.CT";
+			}
+
+			if (Directory.Exists(p) == false)
+			{
+				p = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+			}
+			dlg.InitialDirectory = p;
+			dlg.FileName = pn;
+			dlg.DefaultExt = "dat";
+			dlg.Filter = "*.dat|*.dat|*.*|*.*";
+
+			if (dlg.ShowDialog() == DialogResult.OK)
+			{
+				ret = SaveFile(dlg.FileName);
+			}
+			return ret;
+
+		}
+		public bool SaveFile()
+		{
+			bool ret = false;
+			if (m_FilePath == "")
+			{
+				ret = SaveFileDialog();
+			}
+			else
+			{
+				if (File.Exists(m_FilePath) == true)
+				{
+					ret = SaveFile(m_FilePath);
+				}
+				else
+				{
+					ret = SaveFileDialog();
+				}
+			}
+			return ret;
+		}
 	}
 }

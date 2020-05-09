@@ -39,6 +39,20 @@
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.listBox2 = new System.Windows.Forms.ListBox();
+			this.lbInfo = new System.Windows.Forms.ListBox();
+			this.lbResult = new System.Windows.Forms.ListBox();
+			this.tbTargetInt = new System.Windows.Forms.TextBox();
+			this.btnFindInt = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.tbTargetByte = new System.Windows.Forms.TextBox();
+			this.tbTargetShort = new System.Windows.Forms.TextBox();
+			this.btnFinfShort = new System.Windows.Forms.Button();
+			this.rvDP = new RefrainSaveEditor.RefrainValue();
+			this.rvHP = new RefrainSaveEditor.RefrainValue();
+			this.rvFullLevel = new RefrainSaveEditor.RefrainValue();
+			this.rvLevel = new RefrainSaveEditor.RefrainValue();
+			this.rvAnima = new RefrainSaveEditor.RefrainValue();
+			this.rvCN = new RefrainSaveEditor.RefrainValue();
 			this.rvFText = new RefrainSaveEditor.RefrainValue();
 			this.rvEXT = new RefrainSaveEditor.RefrainValue();
 			this.rvSName = new RefrainSaveEditor.RefrainValue();
@@ -49,15 +63,6 @@
 			this.rvPlayerName = new RefrainSaveEditor.RefrainValue();
 			this.TotalExp = new RefrainSaveEditor.RefrainValue();
 			this.refrainSaveFile1 = new RefrainSaveEditor.RefrainSaveFile();
-			this.rvCN = new RefrainSaveEditor.RefrainValue();
-			this.lbInfo = new System.Windows.Forms.ListBox();
-			this.lbResult = new System.Windows.Forms.ListBox();
-			this.tbTargetInt = new System.Windows.Forms.TextBox();
-			this.btnFindInt = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.tbTargetByte = new System.Windows.Forms.TextBox();
-			this.tbTargetShort = new System.Windows.Forms.TextBox();
-			this.btnFinfShort = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -69,7 +74,7 @@
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(821, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(894, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -87,26 +92,28 @@
 			// openToolStripMenuItem
 			// 
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.openToolStripMenuItem.Text = "Open";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
 			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+			this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.saveToolStripMenuItem.Text = "Save";
+			this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
 			this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.saveAsToolStripMenuItem.Text = "SaveAs";
+			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
 			// 
 			// quitToolStripMenuItem
 			// 
 			this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-			this.quitToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+			this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.quitToolStripMenuItem.Text = "Quit";
 			this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
 			// 
@@ -135,7 +142,7 @@
 			// 
 			this.statusStrip1.Location = new System.Drawing.Point(0, 492);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(821, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(894, 22);
 			this.statusStrip1.TabIndex = 1;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
@@ -147,6 +154,196 @@
 			this.listBox2.Name = "listBox2";
 			this.listBox2.Size = new System.Drawing.Size(127, 448);
 			this.listBox2.TabIndex = 4;
+			// 
+			// lbInfo
+			// 
+			this.lbInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lbInfo.FormattingEnabled = true;
+			this.lbInfo.ItemHeight = 12;
+			this.lbInfo.Location = new System.Drawing.Point(541, 257);
+			this.lbInfo.Name = "lbInfo";
+			this.lbInfo.Size = new System.Drawing.Size(333, 232);
+			this.lbInfo.TabIndex = 19;
+			// 
+			// lbResult
+			// 
+			this.lbResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.lbResult.FormattingEnabled = true;
+			this.lbResult.ItemHeight = 12;
+			this.lbResult.Location = new System.Drawing.Point(692, 104);
+			this.lbResult.Name = "lbResult";
+			this.lbResult.Size = new System.Drawing.Size(171, 76);
+			this.lbResult.TabIndex = 20;
+			// 
+			// tbTargetInt
+			// 
+			this.tbTargetInt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbTargetInt.Location = new System.Drawing.Point(692, 80);
+			this.tbTargetInt.Name = "tbTargetInt";
+			this.tbTargetInt.Size = new System.Drawing.Size(100, 19);
+			this.tbTargetInt.TabIndex = 21;
+			// 
+			// btnFindInt
+			// 
+			this.btnFindInt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnFindInt.Location = new System.Drawing.Point(799, 80);
+			this.btnFindInt.Name = "btnFindInt";
+			this.btnFindInt.Size = new System.Drawing.Size(75, 23);
+			this.btnFindInt.TabIndex = 22;
+			this.btnFindInt.Text = "FindInt";
+			this.btnFindInt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.btnFindInt.UseVisualStyleBackColor = true;
+			this.btnFindInt.Click += new System.EventHandler(this.btnFind_Click);
+			// 
+			// button1
+			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.Location = new System.Drawing.Point(798, 35);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 24;
+			this.button1.Text = "FindByte";
+			this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click_1);
+			// 
+			// tbTargetByte
+			// 
+			this.tbTargetByte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbTargetByte.Location = new System.Drawing.Point(692, 37);
+			this.tbTargetByte.Name = "tbTargetByte";
+			this.tbTargetByte.Size = new System.Drawing.Size(100, 19);
+			this.tbTargetByte.TabIndex = 23;
+			// 
+			// tbTargetShort
+			// 
+			this.tbTargetShort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbTargetShort.Location = new System.Drawing.Point(692, 60);
+			this.tbTargetShort.Name = "tbTargetShort";
+			this.tbTargetShort.Size = new System.Drawing.Size(100, 19);
+			this.tbTargetShort.TabIndex = 25;
+			// 
+			// btnFinfShort
+			// 
+			this.btnFinfShort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnFinfShort.Location = new System.Drawing.Point(799, 57);
+			this.btnFinfShort.Name = "btnFinfShort";
+			this.btnFinfShort.Size = new System.Drawing.Size(75, 23);
+			this.btnFinfShort.TabIndex = 26;
+			this.btnFinfShort.Text = "FindShort";
+			this.btnFinfShort.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.btnFinfShort.UseVisualStyleBackColor = true;
+			this.btnFinfShort.Click += new System.EventHandler(this.btnFinfShort_Click);
+			// 
+			// rvDP
+			// 
+			this.rvDP.ButtonWidth = 40;
+			this.rvDP.Caption = "DP";
+			this.rvDP.CaptionWidth = 80;
+			this.rvDP.Location = new System.Drawing.Point(176, 326);
+			this.rvDP.Margin = new System.Windows.Forms.Padding(0);
+			this.rvDP.MaxValue = 9999999;
+			this.rvDP.Name = "rvDP";
+			this.rvDP.Offset = 780;
+			this.rvDP.Size = new System.Drawing.Size(240, 20);
+			this.rvDP.StringLength = 10;
+			this.rvDP.TabIndex = 31;
+			this.rvDP.Text = "refrainValue1";
+			this.rvDP.ValueTarget = RefrainSaveEditor.ValueTarget.CHAR_INDEX;
+			this.rvDP.ValueType = RefrainSaveEditor.ValueType.INT;
+			this.rvDP.ValueWidth = 120;
+			// 
+			// rvHP
+			// 
+			this.rvHP.ButtonWidth = 40;
+			this.rvHP.Caption = "HP";
+			this.rvHP.CaptionWidth = 80;
+			this.rvHP.Location = new System.Drawing.Point(176, 306);
+			this.rvHP.Margin = new System.Windows.Forms.Padding(0);
+			this.rvHP.MaxValue = 9999999;
+			this.rvHP.Name = "rvHP";
+			this.rvHP.Offset = 776;
+			this.rvHP.Size = new System.Drawing.Size(240, 20);
+			this.rvHP.StringLength = 10;
+			this.rvHP.TabIndex = 30;
+			this.rvHP.Text = "refrainValue1";
+			this.rvHP.ValueTarget = RefrainSaveEditor.ValueTarget.CHAR_INDEX;
+			this.rvHP.ValueType = RefrainSaveEditor.ValueType.INT;
+			this.rvHP.ValueWidth = 120;
+			// 
+			// rvFullLevel
+			// 
+			this.rvFullLevel.ButtonWidth = 40;
+			this.rvFullLevel.Caption = "総Level";
+			this.rvFullLevel.CaptionWidth = 80;
+			this.rvFullLevel.Location = new System.Drawing.Point(176, 286);
+			this.rvFullLevel.Margin = new System.Windows.Forms.Padding(0);
+			this.rvFullLevel.MaxValue = 9999999;
+			this.rvFullLevel.Name = "rvFullLevel";
+			this.rvFullLevel.Offset = 464;
+			this.rvFullLevel.Size = new System.Drawing.Size(240, 20);
+			this.rvFullLevel.StringLength = 10;
+			this.rvFullLevel.TabIndex = 29;
+			this.rvFullLevel.Text = "refrainValue1";
+			this.rvFullLevel.ValueTarget = RefrainSaveEditor.ValueTarget.CHAR_INDEX;
+			this.rvFullLevel.ValueType = RefrainSaveEditor.ValueType.INT;
+			this.rvFullLevel.ValueWidth = 120;
+			// 
+			// rvLevel
+			// 
+			this.rvLevel.ButtonWidth = 40;
+			this.rvLevel.Caption = "Level";
+			this.rvLevel.CaptionWidth = 80;
+			this.rvLevel.Location = new System.Drawing.Point(176, 266);
+			this.rvLevel.Margin = new System.Windows.Forms.Padding(0);
+			this.rvLevel.MaxValue = 9999999;
+			this.rvLevel.Name = "rvLevel";
+			this.rvLevel.Offset = 459;
+			this.rvLevel.Size = new System.Drawing.Size(240, 20);
+			this.rvLevel.StringLength = 10;
+			this.rvLevel.TabIndex = 28;
+			this.rvLevel.Text = "refrainValue1";
+			this.rvLevel.ValueTarget = RefrainSaveEditor.ValueTarget.CHAR_INDEX;
+			this.rvLevel.ValueType = RefrainSaveEditor.ValueType.BYTE;
+			this.rvLevel.ValueWidth = 120;
+			// 
+			// rvAnima
+			// 
+			this.rvAnima.ButtonWidth = 40;
+			this.rvAnima.Caption = "アニマクラリティ";
+			this.rvAnima.CaptionWidth = 80;
+			this.rvAnima.Location = new System.Drawing.Point(176, 246);
+			this.rvAnima.Margin = new System.Windows.Forms.Padding(0);
+			this.rvAnima.MaxValue = 9999999;
+			this.rvAnima.Name = "rvAnima";
+			this.rvAnima.Offset = 458;
+			this.rvAnima.Size = new System.Drawing.Size(240, 20);
+			this.rvAnima.StringLength = 10;
+			this.rvAnima.TabIndex = 27;
+			this.rvAnima.Text = "refrainValue1";
+			this.rvAnima.ValueTarget = RefrainSaveEditor.ValueTarget.CHAR_INDEX;
+			this.rvAnima.ValueType = RefrainSaveEditor.ValueType.BYTE;
+			this.rvAnima.ValueWidth = 120;
+			// 
+			// rvCN
+			// 
+			this.rvCN.ButtonWidth = 40;
+			this.rvCN.Caption = "因果数";
+			this.rvCN.CaptionWidth = 80;
+			this.rvCN.Location = new System.Drawing.Point(176, 181);
+			this.rvCN.Margin = new System.Windows.Forms.Padding(0);
+			this.rvCN.MaxValue = 99;
+			this.rvCN.Name = "rvCN";
+			this.rvCN.Offset = 364;
+			this.rvCN.Size = new System.Drawing.Size(240, 20);
+			this.rvCN.StringLength = 10;
+			this.rvCN.TabIndex = 18;
+			this.rvCN.Text = "refrainValue1";
+			this.rvCN.ValueTarget = RefrainSaveEditor.ValueTarget.CHAR_INDEX;
+			this.rvCN.ValueType = RefrainSaveEditor.ValueType.INT;
+			this.rvCN.ValueWidth = 120;
 			// 
 			// rvFText
 			// 
@@ -189,18 +386,18 @@
 			this.rvSName.ButtonWidth = 40;
 			this.rvSName.Caption = "SHORT NAME";
 			this.rvSName.CaptionWidth = 80;
-			this.rvSName.Location = new System.Drawing.Point(421, 137);
+			this.rvSName.Location = new System.Drawing.Point(425, 137);
 			this.rvSName.Margin = new System.Windows.Forms.Padding(0);
 			this.rvSName.MaxValue = 9999999;
 			this.rvSName.Name = "rvSName";
 			this.rvSName.Offset = 71;
-			this.rvSName.Size = new System.Drawing.Size(240, 20);
+			this.rvSName.Size = new System.Drawing.Size(225, 20);
 			this.rvSName.StringLength = 30;
 			this.rvSName.TabIndex = 15;
 			this.rvSName.Text = "refrainValue1";
 			this.rvSName.ValueTarget = RefrainSaveEditor.ValueTarget.CHAR_INDEX;
 			this.rvSName.ValueType = RefrainSaveEditor.ValueType.STRING;
-			this.rvSName.ValueWidth = 120;
+			this.rvSName.ValueWidth = 100;
 			// 
 			// rvCharName
 			// 
@@ -311,10 +508,15 @@
 			// 
 			// refrainSaveFile1
 			// 
+			this.refrainSaveFile1.AnimaClarity = this.rvAnima;
 			this.refrainSaveFile1.CausalNum = this.rvCN;
+			this.refrainSaveFile1.CharDP = this.rvDP;
 			this.refrainSaveFile1.CharFlavorText = this.rvFText;
+			this.refrainSaveFile1.CharFullLevel = this.rvFullLevel;
+			this.refrainSaveFile1.CharHP = this.rvHP;
 			this.refrainSaveFile1.CharIndex = 0;
 			this.refrainSaveFile1.CharInfo = this.lbInfo;
+			this.refrainSaveFile1.CharLevel = this.rvLevel;
 			this.refrainSaveFile1.CharList = this.listBox2;
 			this.refrainSaveFile1.CharNmae = this.rvCharName;
 			this.refrainSaveFile1.CharShortNmae = this.rvSName;
@@ -326,112 +528,17 @@
 			this.refrainSaveFile1.PlayerName = this.rvPlayerName;
 			this.refrainSaveFile1.TotalEXP = this.TotalExp;
 			// 
-			// rvCN
-			// 
-			this.rvCN.ButtonWidth = 40;
-			this.rvCN.Caption = "因果数";
-			this.rvCN.CaptionWidth = 80;
-			this.rvCN.Location = new System.Drawing.Point(176, 181);
-			this.rvCN.Margin = new System.Windows.Forms.Padding(0);
-			this.rvCN.MaxValue = 99;
-			this.rvCN.Name = "rvCN";
-			this.rvCN.Offset = 364;
-			this.rvCN.Size = new System.Drawing.Size(240, 20);
-			this.rvCN.StringLength = 10;
-			this.rvCN.TabIndex = 18;
-			this.rvCN.Text = "refrainValue1";
-			this.rvCN.ValueTarget = RefrainSaveEditor.ValueTarget.CHAR_INDEX;
-			this.rvCN.ValueType = RefrainSaveEditor.ValueType.INT;
-			this.rvCN.ValueWidth = 120;
-			// 
-			// lbInfo
-			// 
-			this.lbInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.lbInfo.FormattingEnabled = true;
-			this.lbInfo.ItemHeight = 12;
-			this.lbInfo.Location = new System.Drawing.Point(188, 249);
-			this.lbInfo.Name = "lbInfo";
-			this.lbInfo.Size = new System.Drawing.Size(396, 232);
-			this.lbInfo.TabIndex = 19;
-			// 
-			// lbResult
-			// 
-			this.lbResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.lbResult.FormattingEnabled = true;
-			this.lbResult.ItemHeight = 12;
-			this.lbResult.Location = new System.Drawing.Point(623, 249);
-			this.lbResult.Name = "lbResult";
-			this.lbResult.Size = new System.Drawing.Size(171, 232);
-			this.lbResult.TabIndex = 20;
-			// 
-			// tbTargetInt
-			// 
-			this.tbTargetInt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTargetInt.Location = new System.Drawing.Point(623, 225);
-			this.tbTargetInt.Name = "tbTargetInt";
-			this.tbTargetInt.Size = new System.Drawing.Size(100, 19);
-			this.tbTargetInt.TabIndex = 21;
-			// 
-			// btnFindInt
-			// 
-			this.btnFindInt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnFindInt.Location = new System.Drawing.Point(730, 225);
-			this.btnFindInt.Name = "btnFindInt";
-			this.btnFindInt.Size = new System.Drawing.Size(75, 23);
-			this.btnFindInt.TabIndex = 22;
-			this.btnFindInt.Text = "FindInt";
-			this.btnFindInt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.btnFindInt.UseVisualStyleBackColor = true;
-			this.btnFindInt.Click += new System.EventHandler(this.btnFind_Click);
-			// 
-			// button1
-			// 
-			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(729, 180);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 24;
-			this.button1.Text = "FindByte";
-			this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click_1);
-			// 
-			// tbTargetByte
-			// 
-			this.tbTargetByte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTargetByte.Location = new System.Drawing.Point(623, 182);
-			this.tbTargetByte.Name = "tbTargetByte";
-			this.tbTargetByte.Size = new System.Drawing.Size(100, 19);
-			this.tbTargetByte.TabIndex = 23;
-			// 
-			// tbTargetShort
-			// 
-			this.tbTargetShort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTargetShort.Location = new System.Drawing.Point(623, 205);
-			this.tbTargetShort.Name = "tbTargetShort";
-			this.tbTargetShort.Size = new System.Drawing.Size(100, 19);
-			this.tbTargetShort.TabIndex = 25;
-			// 
-			// btnFinfShort
-			// 
-			this.btnFinfShort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnFinfShort.Location = new System.Drawing.Point(730, 202);
-			this.btnFinfShort.Name = "btnFinfShort";
-			this.btnFinfShort.Size = new System.Drawing.Size(75, 23);
-			this.btnFinfShort.TabIndex = 26;
-			this.btnFinfShort.Text = "FindShort";
-			this.btnFinfShort.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.btnFinfShort.UseVisualStyleBackColor = true;
-			this.btnFinfShort.Click += new System.EventHandler(this.btnFinfShort_Click);
-			// 
 			// Form1
 			// 
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(821, 514);
+			this.ClientSize = new System.Drawing.Size(894, 514);
+			this.Controls.Add(this.rvDP);
+			this.Controls.Add(this.rvHP);
+			this.Controls.Add(this.rvFullLevel);
+			this.Controls.Add(this.rvLevel);
+			this.Controls.Add(this.rvAnima);
 			this.Controls.Add(this.btnFinfShort);
 			this.Controls.Add(this.tbTargetShort);
 			this.Controls.Add(this.button1);
@@ -499,6 +606,11 @@
 		private System.Windows.Forms.TextBox tbTargetByte;
 		private System.Windows.Forms.TextBox tbTargetShort;
 		private System.Windows.Forms.Button btnFinfShort;
+		private RefrainValue rvAnima;
+		private RefrainValue rvLevel;
+		private RefrainValue rvFullLevel;
+		private RefrainValue rvHP;
+		private RefrainValue rvDP;
 	}
 }
 

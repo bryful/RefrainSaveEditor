@@ -235,5 +235,15 @@ namespace RefrainSaveEditor
 
 			}
 		}
+
+		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			refrainSaveFile1.SaveFile();
+		}
+
+		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			refrainSaveFile1.SaveFileDialog();
+		}
 	}
 }
