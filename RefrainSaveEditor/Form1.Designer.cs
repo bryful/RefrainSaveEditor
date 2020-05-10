@@ -47,6 +47,21 @@
 			this.tbTargetByte = new System.Windows.Forms.TextBox();
 			this.tbTargetShort = new System.Windows.Forms.TextBox();
 			this.btnFinfShort = new System.Windows.Forms.Button();
+			this.cmbTarget = new System.Windows.Forms.ComboBox();
+			this.BtnSetup = new System.Windows.Forms.Button();
+			this.vS11 = new RefrainSaveEditor.SkillValue();
+			this.vS10 = new RefrainSaveEditor.SkillValue();
+			this.vS9 = new RefrainSaveEditor.SkillValue();
+			this.vS8 = new RefrainSaveEditor.SkillValue();
+			this.vS7 = new RefrainSaveEditor.SkillValue();
+			this.vS6 = new RefrainSaveEditor.SkillValue();
+			this.vS5 = new RefrainSaveEditor.SkillValue();
+			this.vS4 = new RefrainSaveEditor.SkillValue();
+			this.vS3 = new RefrainSaveEditor.SkillValue();
+			this.vS2 = new RefrainSaveEditor.SkillValue();
+			this.vS1 = new RefrainSaveEditor.SkillValue();
+			this.vS0 = new RefrainSaveEditor.SkillValue();
+			this.skillValue1 = new RefrainSaveEditor.SkillValue();
 			this.rvDP = new RefrainSaveEditor.RefrainValue();
 			this.rvHP = new RefrainSaveEditor.RefrainValue();
 			this.rvFullLevel = new RefrainSaveEditor.RefrainValue();
@@ -63,6 +78,7 @@
 			this.rvPlayerName = new RefrainSaveEditor.RefrainValue();
 			this.TotalExp = new RefrainSaveEditor.RefrainValue();
 			this.refrainSaveFile1 = new RefrainSaveEditor.RefrainSaveFile();
+			this.btnCheckExp = new System.Windows.Forms.Button();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -74,7 +90,7 @@
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(894, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(992, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -92,28 +108,28 @@
 			// openToolStripMenuItem
 			// 
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
 			this.openToolStripMenuItem.Text = "Open";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
 			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.saveToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
 			this.saveToolStripMenuItem.Text = "Save";
 			this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
 			this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
 			this.saveAsToolStripMenuItem.Text = "SaveAs";
 			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
 			// 
 			// quitToolStripMenuItem
 			// 
 			this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-			this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.quitToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
 			this.quitToolStripMenuItem.Text = "Quit";
 			this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
 			// 
@@ -142,7 +158,7 @@
 			// 
 			this.statusStrip1.Location = new System.Drawing.Point(0, 492);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(894, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(992, 22);
 			this.statusStrip1.TabIndex = 1;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
@@ -162,9 +178,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.lbInfo.FormattingEnabled = true;
 			this.lbInfo.ItemHeight = 12;
-			this.lbInfo.Location = new System.Drawing.Point(541, 257);
+			this.lbInfo.Location = new System.Drawing.Point(790, 205);
 			this.lbInfo.Name = "lbInfo";
-			this.lbInfo.Size = new System.Drawing.Size(333, 232);
+			this.lbInfo.Size = new System.Drawing.Size(190, 232);
 			this.lbInfo.TabIndex = 19;
 			// 
 			// lbResult
@@ -172,7 +188,7 @@
 			this.lbResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.lbResult.FormattingEnabled = true;
 			this.lbResult.ItemHeight = 12;
-			this.lbResult.Location = new System.Drawing.Point(692, 104);
+			this.lbResult.Location = new System.Drawing.Point(790, 104);
 			this.lbResult.Name = "lbResult";
 			this.lbResult.Size = new System.Drawing.Size(171, 76);
 			this.lbResult.TabIndex = 20;
@@ -180,7 +196,7 @@
 			// tbTargetInt
 			// 
 			this.tbTargetInt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTargetInt.Location = new System.Drawing.Point(692, 80);
+			this.tbTargetInt.Location = new System.Drawing.Point(790, 80);
 			this.tbTargetInt.Name = "tbTargetInt";
 			this.tbTargetInt.Size = new System.Drawing.Size(100, 19);
 			this.tbTargetInt.TabIndex = 21;
@@ -188,7 +204,7 @@
 			// btnFindInt
 			// 
 			this.btnFindInt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnFindInt.Location = new System.Drawing.Point(799, 80);
+			this.btnFindInt.Location = new System.Drawing.Point(897, 80);
 			this.btnFindInt.Name = "btnFindInt";
 			this.btnFindInt.Size = new System.Drawing.Size(75, 23);
 			this.btnFindInt.TabIndex = 22;
@@ -200,7 +216,7 @@
 			// button1
 			// 
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(798, 35);
+			this.button1.Location = new System.Drawing.Point(896, 35);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 24;
@@ -212,7 +228,7 @@
 			// tbTargetByte
 			// 
 			this.tbTargetByte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTargetByte.Location = new System.Drawing.Point(692, 37);
+			this.tbTargetByte.Location = new System.Drawing.Point(790, 37);
 			this.tbTargetByte.Name = "tbTargetByte";
 			this.tbTargetByte.Size = new System.Drawing.Size(100, 19);
 			this.tbTargetByte.TabIndex = 23;
@@ -220,7 +236,7 @@
 			// tbTargetShort
 			// 
 			this.tbTargetShort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTargetShort.Location = new System.Drawing.Point(692, 60);
+			this.tbTargetShort.Location = new System.Drawing.Point(790, 60);
 			this.tbTargetShort.Name = "tbTargetShort";
 			this.tbTargetShort.Size = new System.Drawing.Size(100, 19);
 			this.tbTargetShort.TabIndex = 25;
@@ -228,7 +244,7 @@
 			// btnFinfShort
 			// 
 			this.btnFinfShort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnFinfShort.Location = new System.Drawing.Point(799, 57);
+			this.btnFinfShort.Location = new System.Drawing.Point(897, 57);
 			this.btnFinfShort.Name = "btnFinfShort";
 			this.btnFinfShort.Size = new System.Drawing.Size(75, 23);
 			this.btnFinfShort.TabIndex = 26;
@@ -236,6 +252,203 @@
 			this.btnFinfShort.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.btnFinfShort.UseVisualStyleBackColor = true;
 			this.btnFinfShort.Click += new System.EventHandler(this.btnFinfShort_Click);
+			// 
+			// cmbTarget
+			// 
+			this.cmbTarget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbTarget.FormattingEnabled = true;
+			this.cmbTarget.Items.AddRange(new object[] {
+            "アステルナイト",
+            "シノブシ",
+            "シアトリカルスター",
+            "マージナルメイズ",
+            "ピアフォートレス",
+            "マッドラプター",
+            "ゴシックコッペリア",
+            "デモンリーパー"});
+			this.cmbTarget.Location = new System.Drawing.Point(563, 339);
+			this.cmbTarget.Name = "cmbTarget";
+			this.cmbTarget.Size = new System.Drawing.Size(135, 20);
+			this.cmbTarget.TabIndex = 57;
+			// 
+			// BtnSetup
+			// 
+			this.BtnSetup.Location = new System.Drawing.Point(704, 339);
+			this.BtnSetup.Name = "BtnSetup";
+			this.BtnSetup.Size = new System.Drawing.Size(64, 23);
+			this.BtnSetup.TabIndex = 58;
+			this.BtnSetup.Text = "Setup";
+			this.BtnSetup.UseVisualStyleBackColor = true;
+			this.BtnSetup.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// vS11
+			// 
+			this.vS11.Location = new System.Drawing.Point(592, 306);
+			this.vS11.Margin = new System.Windows.Forms.Padding(0);
+			this.vS11.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS11.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS11.Name = "vS11";
+			this.vS11.Offset = 0;
+			this.vS11.SelectedIndex = 0;
+			this.vS11.Size = new System.Drawing.Size(120, 20);
+			this.vS11.TabIndex = 56;
+			this.vS11.Text = "skillValue2";
+			// 
+			// vS10
+			// 
+			this.vS10.Location = new System.Drawing.Point(457, 306);
+			this.vS10.Margin = new System.Windows.Forms.Padding(0);
+			this.vS10.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS10.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS10.Name = "vS10";
+			this.vS10.Offset = 0;
+			this.vS10.SelectedIndex = 0;
+			this.vS10.Size = new System.Drawing.Size(120, 20);
+			this.vS10.TabIndex = 55;
+			this.vS10.Text = "skillValue2";
+			// 
+			// vS9
+			// 
+			this.vS9.Location = new System.Drawing.Point(592, 286);
+			this.vS9.Margin = new System.Windows.Forms.Padding(0);
+			this.vS9.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS9.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS9.Name = "vS9";
+			this.vS9.Offset = 0;
+			this.vS9.SelectedIndex = 0;
+			this.vS9.Size = new System.Drawing.Size(120, 20);
+			this.vS9.TabIndex = 54;
+			this.vS9.Text = "skillValue2";
+			// 
+			// vS8
+			// 
+			this.vS8.Location = new System.Drawing.Point(457, 286);
+			this.vS8.Margin = new System.Windows.Forms.Padding(0);
+			this.vS8.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS8.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS8.Name = "vS8";
+			this.vS8.Offset = 0;
+			this.vS8.SelectedIndex = 0;
+			this.vS8.Size = new System.Drawing.Size(120, 20);
+			this.vS8.TabIndex = 53;
+			this.vS8.Text = "skillValue2";
+			// 
+			// vS7
+			// 
+			this.vS7.Location = new System.Drawing.Point(592, 266);
+			this.vS7.Margin = new System.Windows.Forms.Padding(0);
+			this.vS7.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS7.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS7.Name = "vS7";
+			this.vS7.Offset = 0;
+			this.vS7.SelectedIndex = 0;
+			this.vS7.Size = new System.Drawing.Size(120, 20);
+			this.vS7.TabIndex = 52;
+			this.vS7.Text = "skillValue2";
+			// 
+			// vS6
+			// 
+			this.vS6.Location = new System.Drawing.Point(457, 266);
+			this.vS6.Margin = new System.Windows.Forms.Padding(0);
+			this.vS6.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS6.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS6.Name = "vS6";
+			this.vS6.Offset = 0;
+			this.vS6.SelectedIndex = 0;
+			this.vS6.Size = new System.Drawing.Size(120, 20);
+			this.vS6.TabIndex = 51;
+			this.vS6.Text = "skillValue2";
+			// 
+			// vS5
+			// 
+			this.vS5.Location = new System.Drawing.Point(592, 246);
+			this.vS5.Margin = new System.Windows.Forms.Padding(0);
+			this.vS5.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS5.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS5.Name = "vS5";
+			this.vS5.Offset = 0;
+			this.vS5.SelectedIndex = 0;
+			this.vS5.Size = new System.Drawing.Size(120, 20);
+			this.vS5.TabIndex = 50;
+			this.vS5.Text = "skillValue2";
+			// 
+			// vS4
+			// 
+			this.vS4.Location = new System.Drawing.Point(457, 246);
+			this.vS4.Margin = new System.Windows.Forms.Padding(0);
+			this.vS4.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS4.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS4.Name = "vS4";
+			this.vS4.Offset = 0;
+			this.vS4.SelectedIndex = 0;
+			this.vS4.Size = new System.Drawing.Size(120, 20);
+			this.vS4.TabIndex = 49;
+			this.vS4.Text = "skillValue2";
+			// 
+			// vS3
+			// 
+			this.vS3.Location = new System.Drawing.Point(592, 226);
+			this.vS3.Margin = new System.Windows.Forms.Padding(0);
+			this.vS3.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS3.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS3.Name = "vS3";
+			this.vS3.Offset = 0;
+			this.vS3.SelectedIndex = 0;
+			this.vS3.Size = new System.Drawing.Size(120, 20);
+			this.vS3.TabIndex = 48;
+			this.vS3.Text = "skillValue2";
+			// 
+			// vS2
+			// 
+			this.vS2.Location = new System.Drawing.Point(457, 226);
+			this.vS2.Margin = new System.Windows.Forms.Padding(0);
+			this.vS2.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS2.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS2.Name = "vS2";
+			this.vS2.Offset = 0;
+			this.vS2.SelectedIndex = 0;
+			this.vS2.Size = new System.Drawing.Size(120, 20);
+			this.vS2.TabIndex = 47;
+			this.vS2.Text = "skillValue2";
+			// 
+			// vS1
+			// 
+			this.vS1.Location = new System.Drawing.Point(592, 205);
+			this.vS1.Margin = new System.Windows.Forms.Padding(0);
+			this.vS1.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS1.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS1.Name = "vS1";
+			this.vS1.Offset = 0;
+			this.vS1.SelectedIndex = 0;
+			this.vS1.Size = new System.Drawing.Size(120, 20);
+			this.vS1.TabIndex = 46;
+			this.vS1.Text = "skillValue2";
+			// 
+			// vS0
+			// 
+			this.vS0.Location = new System.Drawing.Point(457, 205);
+			this.vS0.Margin = new System.Windows.Forms.Padding(0);
+			this.vS0.MaximumSize = new System.Drawing.Size(500, 20);
+			this.vS0.MinimumSize = new System.Drawing.Size(50, 20);
+			this.vS0.Name = "vS0";
+			this.vS0.Offset = 0;
+			this.vS0.SelectedIndex = 0;
+			this.vS0.Size = new System.Drawing.Size(120, 20);
+			this.vS0.TabIndex = 45;
+			this.vS0.Text = "skillValue2";
+			// 
+			// skillValue1
+			// 
+			this.skillValue1.Location = new System.Drawing.Point(372, 390);
+			this.skillValue1.Margin = new System.Windows.Forms.Padding(0);
+			this.skillValue1.MaximumSize = new System.Drawing.Size(500, 20);
+			this.skillValue1.MinimumSize = new System.Drawing.Size(50, 20);
+			this.skillValue1.Name = "skillValue1";
+			this.skillValue1.Offset = 0;
+			this.skillValue1.SelectedIndex = 0;
+			this.skillValue1.Size = new System.Drawing.Size(173, 20);
+			this.skillValue1.TabIndex = 44;
+			this.skillValue1.Text = "skillValue1";
 			// 
 			// rvDP
 			// 
@@ -370,7 +583,7 @@
 			this.rvEXT.CaptionWidth = 80;
 			this.rvEXT.Location = new System.Drawing.Point(176, 205);
 			this.rvEXT.Margin = new System.Windows.Forms.Padding(0);
-			this.rvEXT.MaxValue = 9999999;
+			this.rvEXT.MaxValue = 2147483647;
 			this.rvEXT.Name = "rvEXT";
 			this.rvEXT.Offset = 460;
 			this.rvEXT.Size = new System.Drawing.Size(240, 20);
@@ -495,7 +708,7 @@
 			this.TotalExp.CaptionWidth = 80;
 			this.TotalExp.Location = new System.Drawing.Point(176, 225);
 			this.TotalExp.Margin = new System.Windows.Forms.Padding(0);
-			this.TotalExp.MaxValue = 9999999;
+			this.TotalExp.MaxValue = 2147483647;
 			this.TotalExp.Name = "TotalExp";
 			this.TotalExp.Offset = 468;
 			this.TotalExp.Size = new System.Drawing.Size(257, 21);
@@ -528,12 +741,38 @@
 			this.refrainSaveFile1.PlayerName = this.rvPlayerName;
 			this.refrainSaveFile1.TotalEXP = this.TotalExp;
 			// 
+			// btnCheckExp
+			// 
+			this.btnCheckExp.Location = new System.Drawing.Point(485, 37);
+			this.btnCheckExp.Name = "btnCheckExp";
+			this.btnCheckExp.Size = new System.Drawing.Size(75, 23);
+			this.btnCheckExp.TabIndex = 59;
+			this.btnCheckExp.Text = "Check Exp";
+			this.btnCheckExp.UseVisualStyleBackColor = true;
+			this.btnCheckExp.Click += new System.EventHandler(this.btnCheckExp_Click);
+			// 
 			// Form1
 			// 
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(894, 514);
+			this.ClientSize = new System.Drawing.Size(992, 514);
+			this.Controls.Add(this.btnCheckExp);
+			this.Controls.Add(this.BtnSetup);
+			this.Controls.Add(this.cmbTarget);
+			this.Controls.Add(this.vS11);
+			this.Controls.Add(this.vS10);
+			this.Controls.Add(this.vS9);
+			this.Controls.Add(this.vS8);
+			this.Controls.Add(this.vS7);
+			this.Controls.Add(this.vS6);
+			this.Controls.Add(this.vS5);
+			this.Controls.Add(this.vS4);
+			this.Controls.Add(this.vS3);
+			this.Controls.Add(this.vS2);
+			this.Controls.Add(this.vS1);
+			this.Controls.Add(this.vS0);
+			this.Controls.Add(this.skillValue1);
 			this.Controls.Add(this.rvDP);
 			this.Controls.Add(this.rvHP);
 			this.Controls.Add(this.rvFullLevel);
@@ -611,6 +850,22 @@
 		private RefrainValue rvFullLevel;
 		private RefrainValue rvHP;
 		private RefrainValue rvDP;
+		private SkillValue skillValue1;
+		private SkillValue vS0;
+		private SkillValue vS1;
+		private SkillValue vS2;
+		private SkillValue vS3;
+		private SkillValue vS4;
+		private SkillValue vS5;
+		private SkillValue vS6;
+		private SkillValue vS7;
+		private SkillValue vS8;
+		private SkillValue vS9;
+		private SkillValue vS10;
+		private SkillValue vS11;
+		private System.Windows.Forms.ComboBox cmbTarget;
+		private System.Windows.Forms.Button BtnSetup;
+		private System.Windows.Forms.Button btnCheckExp;
 	}
 }
 

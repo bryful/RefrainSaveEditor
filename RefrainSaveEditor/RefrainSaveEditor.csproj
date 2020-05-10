@@ -122,6 +122,9 @@
     <Compile Include="RefrainSaveFile_Data.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SkillValue.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WindowsShellAPI.cs" />
     <EmbeddedResource Include="AppInfoDialog.resx">
       <DependentUpon>AppInfoDialog.cs</DependentUpon>

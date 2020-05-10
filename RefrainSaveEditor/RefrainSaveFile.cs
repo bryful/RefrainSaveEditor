@@ -318,10 +318,32 @@ namespace RefrainSaveEditor
 					m_EXP.Caption = "EXP";
 					m_EXP.ValueType = ValueType.INT;
 					m_EXP.ValueTarget = ValueTarget.CHAR_INDEX;
+					m_EXP.MaxValue = 0x7FFFFFFF;
 					m_EXP.SetRefrainSaveFile(this);
 					m_EXP.Offset = 0x1cc;
 				}
 			}
+		}
+		public void ChkExp()
+		{
+			string[] names = CharNames();
+			if (names.Length <= 0) return;
+			for (int i=0; i<names.Length;i++)
+			{
+				int pos = GetCharAdr(i);
+				byte[] v = GetData(pos + 0x1cc, 4);
+				int exp = (int)v[0] + ((int)v[1] << 8) + ((int)v[2] << 16) + ((int)v[3] << 24);
+				v = GetData(pos + 0x1D4, 4);
+				int texp = (int)v[0] + ((int)v[1] << 8) + ((int)v[2] << 16) + ((int)v[3] << 24);
+				if ((exp<0)||(texp<0))
+				{
+					v = new byte[4];
+					v[0] = v[1] = v[2] = v[3] = 0;
+					SetData(pos + 0x1cc, v);
+					SetData(pos + 0x1D4, v);
+				}
+			}
+			OnDataChanged(new EventArgs());
 		}
 		private RefrainValue m_TotalEXP = null;
 		public RefrainValue TotalEXP
@@ -335,11 +357,28 @@ namespace RefrainSaveEditor
 					m_TotalEXP.ValueType = ValueType.INT;
 					m_TotalEXP.ValueTarget = ValueTarget.CHAR_INDEX;
 					m_TotalEXP.SetRefrainSaveFile(this);
+					m_TotalEXP.MaxValue = 0x7FFFFFFF;
 					m_TotalEXP.Offset = 0x1D4;
 				}
 			}
 		}
-		
+
+		private SkillValue[] m_skills = new SkillValue[12];
+		public void SetSkils(SkillValue [] ss)
+		{
+			if ((ss==null)||(ss.Length!=12))
+			{
+				for (int i = 0; i < 12; i++) m_skills[i] = null;
+				return;
+			}
+			for (int i = 0; i < 12; i++)
+			{
+				m_skills[i] = ss[i];
+				m_skills[i].Offset = 0x176 + i*4;
+				m_skills[i].SetRefrainSaveFile(this);
+			}
+		}
+
 		#endregion
 
 		#region FilePath
@@ -369,6 +408,7 @@ namespace RefrainSaveEditor
 		// *******************************************************************************************
 		public RefrainSaveFile()		
 		{
+			SetSkils(null);
 			this.DataChanged += RefrainSaveFile_DataChanged;
 			this.CharIndexChanged += RefrainSaveFile_DataChanged;
 		}
@@ -397,6 +437,10 @@ namespace RefrainSaveEditor
 			{
 					m_CharInfo.Items.Clear();
 					m_CharInfo.Items.AddRange(GetCharInfo());
+			}
+			for (int i=0; i<12;i++)
+			{
+				if (m_skills[i] != null) m_skills[i].GetValue();
 			}
 		}
 

@@ -3,12 +3,17 @@ char1 1020 328
       1067  47   ShortName
       1085  65   フレーバーテキスト
       118C 16C   因果数
-          017E   アニマクラリティ
-          01CB   Level (byte)
-          01D0   総Level
-          0308   HP
-          030C   DP
-      
+      1196 176  SKILL
+      11C2
+      11EA 1CA   アニマクラリティ
+      11EB 1CB   Level (byte)
+      11EC 1CC   EXP
+      11F0 1D0   総Level
+      11F4 1D4   TotalEXP
+      1220 200   EQ
+      1237
+           308   HP
+           30C   DP
       
 char2 1348 328
 char3 1670
@@ -18,3 +23,5 @@ char3 1670
 0x5E MANA
 0x62 KARUMA
 0x66 REINFORCE
+
+1240
