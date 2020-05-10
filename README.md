@@ -1,8 +1,14 @@
 # Labyrinth of Refrain: Coven of Dusk [steam] Save data Editor
 ルフランのセーブエディタです。  
 と言ってもチートするというよりデータがおかしくなったセーブデータを修復するために作りました。
-
-
+  
+バイナリの配布はしませんので、ソースをcloneしてビルドしてください。 
+  
+# 出来る事
+* 銀貨/Mana/カルマの編集
+* キャラクタの因果数・経験値・トータル経験値・アニマクラリティ・Level・総Levelの編集
+* キャラクタのSkillの編集。
+ 
 
 # RefrainCTE
 同梱されているRefrainCTEはCheat EngineのCTファイルを作成するものです。  
