@@ -1,0 +1,734 @@
+SSG for SpoilerAL ver 6.2
+
+[script]
+[title]ルフラン魔女
+[creator]gponys
+[maker]日本一ソフトウェア
+[process]refrain.exe
+[note]
+lastupdate:2019/11/16
+-----------------------
+ルフランの地下迷宮と魔女ノ旅団
+
+【※キャラの項目はSpoilerAL 6.2以降専用です！】
+（6.1でも使えないことはないのですが…大変かも）
+https://github.com/sceawung/source
+https://dev.azure.com/SpoilerAL/Revision/_build/results?buildId=885&view=artifacts&type=publishedArtifacts
+　Azureサイト側のSpoilerALスロットの右端にダウンロードマークがあります。<br>
+　このファイル内の「winmm.dll」を従来のSpoilerAL.exeと同じディレクトリに入れることで、SpoilerALが6.2以降になります。
+※上記サイトの状況は2020年5月5日現在です。今後も同じとは限りません。
+
+
+【使用法（検索タイミング）】
+ゲームプレイ中にSpoilerAL を起動してください。
+
+★★その1：銀貨やマナなどの項目
+　いずれかのエディット項目を選択すると、
+　[SearchForm]が表示され自動的にアドレスの検索が始まります。
+　このフォームのアドレス候補に、しばらくすると
+　　「～=補正値（16進:0）（10進:0）」
+　の下に候補が表示されるので、そちらをダブルクリック。
+
+
+★★その2：キャラの項目
+　キャラの項目をクリックすると、
+　[SearchForm]のダイアログタブに
+　HPとDPを入力するダイアログが現れます。
+　こちらに各所持値を入力して【OK】をクリック。
+　画面が切り替わるので、
+　虫眼鏡のマークをクリックするとサーチ開始。
+　しばらくすると
+　　「～=補正値（16進:0）（10進:0）」
+　の下に候補が“複数”表示されます。それぞれダブルクリックして、
+　エディタ上のキャラ名が正常に表示される候補を探してください。
+　正常に表示されたアドレス候補のみが使用可能です。
+
+※キャラ作成直後は検索しても捕まらない場合があります。
+　一旦ダンジョンに突入してから再度検索をお試しください。
+
+※従来のSpoilerAL 6.1 ではキャラ名が正常に表示されません。
+　そのため選択したアドレス候補が正解かどうかを確認するには
+　エディタ上のパーソナリティの項目と
+　ゲーム画面上の同内容（ファセット・性別・スタンスなど）や
+　因果数・アニマクラリティ・総レベル・TOTAL EXPなどが
+　一致するものを探してください。
+
+※STRなどのステータス値はもともと一致しません。
+　エディタ上の表示はそのキャラの素の能力値ですが、
+　ゲーム上の表示はスタンスや性格、装備や結魂書などで
+　補正された後の数値が表示されています。
+　なのでステータス値をアドレス候補を探す手がかりと
+　するのは危険です。
+
+
+★★その3：戦闘中の敵1体
+　項目をクリックすると、
+　[SearchForm]のダイアログタブに
+　EXPとマナを入力するダイアログが現れます。
+　出現中の敵のEXPとマナを入力してください。
+　各値は以下の攻略サイトをご参照下さい。
+　https://www.spoiler.jp/game/refrain/index.php?%E3%82%A8%E3%83%8D%E3%83%9F%E3%83%BC%E3%83%AA%E3%82%B9%E3%83%88
+
+　こちらに各所持値を入力して【OK】をクリック。
+　画面が切り替わるので、
+　虫眼鏡のマークをクリックするとサーチ開始。
+　しばらくすると
+　　「～=補正値（16進:0）（10進:0）」
+　の下に候補が表示されるので、ダブルクリック。
+
+　エディタ上のキャラ名は正常に表示されない場合が多いですが、
+　エディタ上のHPとゲーム上の表示HPを比較して同じかご確認ください。
+　同じであればたぶんOK。
+
+
+-------------------------
+◆キャラ候補（魔女につくられし人形兵～）
+　これはフレーバーテキストがデフォルトのままのとき
+　使用可能な自動検索項目です。
+　このテキストのキャラアドレス候補が大量に現れるので
+　アドレス候補を適時切り替えて使用します。
+
+　例えば、3番目のアドレス候補を選択すると
+　登録4番目のキャラがエディタ上に表示されるとします。
+　そのキャラをエディット後、次は12番目の候補を選択。
+　すると今度は登録7番目のキャラがエディット可能に。
+　といった切り替えて使うためのものです。
+
+　こちらは目当てのキャラを特定しにくいですが、
+　毎回HPとDPを入力して目当てのキャラを特定し、
+　エディット後にSpolierALを再起動して
+　またやり直し…とするのが面倒なんだけど、
+　アドレス候補を順次クリックして切り替えながら
+　キャラ探しをするのはOK、という人向け。私のことです。
+
+
+
+-------------------------
+◆キャリーオーバーの設定
+キャリオーバー回数に1以上の数値を入れると、キャリーオーバー中になります。
+合わせて持ち越しEXPを入れることで、戦闘後のリザルト画面に反映されます。
+入力タイミングは戦闘中でもダンジョン移動画面でもOK。
+戦闘後のリザルト画面ではさすがに危ない…。
+
+特定のキャラだけレベルを上げたいなら、そのキャラだけで
+パーティを組んでキャリーオーバーの設定をすると楽でしょう。
+
+
+
+◆総獲得EXP
+ダンジョン帰還時、この値の20％がキャラ全員に一律に入ります。
+探索メンバーに入れていない待機中のキャラも対象です。
+
+なので手っ取り早く全員のレベルを上げるなら、
+ダンジョン入り口でこの総獲得EXPの値を入れ、すぐ帰還。
+
+
+
+----------------------------
+★★★キャラについて★★★
+
+※要注意！　まずはSpoilerAL 6.2以降であることをご確認ください。
+
+Spoiler AL 6.2
+https://github.com/sceawung/source
+
+・名前表示がバグっている場合はアドレスが違うため、使用できません。
+
+・数人分の枠を一応用意しましたが、位置関係が一定でない場合も多いため
+　基本的には検索時にHPDPを入れたキャラだけがエディット可能。
+　二人目以降の名前が正確に表示されていれば、そのキャラもエディット可能。
+　といっても数人程度が限界でしょうか。
+
+このため、キャラ1、キャラ2、キャラ3……と複数に分けています。
+想定する使い方としては、まずはキャラ1で先頭の人形のアドレス確定。
+キャラ2で、キャラ1の欄に表示されない2番目以降のキャラのHPDPを入力し確定。
+キャラ3には上の2つで表示されないキャラのHPDPを入力…
+
+これでも全員はカバーしきれないので、その場合はSpoilerALを終了させ、
+再起動して他のキャラのHPDPを…
+という面倒な仕様。
+
+メモリ変動が激しく規則性も乏しいゲームなので、このやり方でご容赦を。
+
+
+なおキャラの並びは登録順になっている事が多いです。
+
+
+
+◆アニマクラリティ
+本来は99が最大です。エディタ上では理屈上の最大値127まで設定可能。
+これにより本来のアニマ99よりもさらに1.2倍程度強くなります。
+
+なおアニマを100以上にして魂移し（レベルリセット）をすると
+アニマクラリティが1に戻ってしまうので注意。
+…100以上にしてからリセットすることはまず無いとは思いますが一応。
+
+
+
+◆相手への友好度
+並びは登録順です。
+初期値は5000。10000で最高ランクに達します。
+最大でどこまで伸びるかは不明。エディタ上では最大値は20000にしています。
+
+
+
+◆戦闘不能は状態異常ではありません
+HPを1以上にすれば自動的に蘇生します。
+
+
+
+[/note]
+
+-----------------------------------------------
+[involve]rfrn
+
+
+
+[group]dia1
+[val]*.?? ?? ?? ?? *. *. *.
+[input]銀貨:calc,ok,0,99999999,unsigned,little_e
+[input]MANA:calc,ok,0,99999999,unsigned,little_e
+[input]カルマ:calc,ok,0,99999999,unsigned,little_e
+[input]リインフォース:calc,ok,0,99999999,unsigned,little_e
+
+[note]wordwrap
+記入法が「10進」になっているかをまずご確認ください。
+MANAは画面上の銀貨の左隣のほうです。ダンジョン内獲得量のほうではありません。
+入力項目はいくらか省いてもかまいませんが、その分検索精度は下がります。
+[/note]
+[/group]
+
+
+
+
+
+[group]dia2
+[val]*. *.
+[input]現在のHP:calc,no,0,99999999,unsigned,little_e
+[input]現在のDP:calc,ok,0,99999999,unsigned,little_e
+
+[note]wordwrap
+記入法が「10進」になっているかをまずご確認ください。
+HP、DPは現在の数値です。最大HPではありません。
+[/note]
+[/group]
+
+
+
+[group]dia3test
+[val]*.
+[input]略称:string,no,12,null
+[note]wordwrap
+文字検索機能テスト
+[/note]
+[/group]
+
+
+
+[group]dia_enem
+[val]*. *.
+[input]EXP:calc,no,0,99999999,unsigned,little_e
+[input]マナ:calc,ok,0,99999999,unsigned,little_e
+[note]wordwrap
+記入法が「10進」になっているかをまずご確認ください。
+マナは要注意。ゲーム内の戦闘後獲得量じゃなく素のデータです。攻略本やサイト参照。
+[/note]
+[/group]
+
+
+[group]dia_enem2
+[val]*.  ????0000
+[input]最大HP:calc,no,0,99999999,unsigned,little_e
+[note]wordwrap
+記入法が「10進」になっているかをまずご確認ください。
+候補が多すぎるので、敵の現HPと最大HP両方がエディタ上とゲーム画面上とで一致するものを探してください。
+[/note]
+[/group]
+
+
+
+--------------------
+[group]all
+
+
+
+[subject]銀貨:calc,0x00,0,9999999,unsigned
+[subject]MANA:calc,0x08,0,9999999,unsigned
+[subject]ダンジョン内MANA:calc,0x04,0,99999,unsigned
+[subject]カルマ:calc,0x0C,0,99,unsigned
+[subject]リインフォース:calc,0x10,0,100,unsigned
+
+[subject]CARRY-OVER 回数:calc,0x58,0,16,unsigned
+[subject]CARRY-OVER EXP:calc,0x54,0,99999999,unsigned
+
+[subject]総獲得EXP:calc,0x1C8,0,99999999,unsigned
+
+
+
+[/group]
+
+------------------------------------------------------------------
+
+
+[group]charaall1
+[subject]◆キャラ1（※SpoilerAL 6.2）（※要注意）:dir
+ [replace]0x0000,rfrn->キャラST
+ [replace]0x0400,rfrn->キャラST
+ [replace]0x0800,rfrn->キャラST
+ [replace]0x0C00,rfrn->キャラST
+ [replace]0x1000,rfrn->キャラST
+ [replace]0x1400,rfrn->キャラST
+ [replace]0x1800,rfrn->キャラST
+ [replace]0x1C00,rfrn->キャラST
+[back]
+[/group]
+
+
+[group]charaall2
+[subject]◆キャラ2（※SpoilerAL 6.2）（※要注意）:dir
+ [replace]0x0000,rfrn->キャラST
+ [replace]0x0400,rfrn->キャラST
+ [replace]0x0800,rfrn->キャラST
+ [replace]0x0C00,rfrn->キャラST
+ [replace]0x1000,rfrn->キャラST
+ [replace]0x1400,rfrn->キャラST
+ [replace]0x1800,rfrn->キャラST
+ [replace]0x1C00,rfrn->キャラST
+ [replace]0x2000,rfrn->キャラST
+[back]
+[/group]
+
+[group]charaall3
+[subject]◆キャラ3（※SpoilerAL 6.2）（※要注意）:dir
+ [replace]0x0000,rfrn->キャラST
+ [replace]0x0400,rfrn->キャラST
+ [replace]0x0800,rfrn->キャラST
+ [replace]0x0C00,rfrn->キャラST
+ [replace]0x1000,rfrn->キャラST
+ [replace]0x1400,rfrn->キャラST
+ [replace]0x1800,rfrn->キャラST
+ [replace]0x1C00,rfrn->キャラST
+ [replace]0x2000,rfrn->キャラST
+[back]
+[/group]
+
+[group]charaall4
+[subject]◆キャラ4（※SpoilerAL 6.2）（※要注意）:dir
+ [replace]0x0000,rfrn->キャラST
+ [replace]0x0400,rfrn->キャラST
+ [replace]0x0800,rfrn->キャラST
+ [replace]0x0C00,rfrn->キャラST
+ [replace]0x1000,rfrn->キャラST
+ [replace]0x1400,rfrn->キャラST
+ [replace]0x1800,rfrn->キャラST
+ [replace]0x1C00,rfrn->キャラST
+ [replace]0x2000,rfrn->キャラST
+[back]
+[/group]
+
+
+[group]charaall5test
+[subject]◆キャラ候補（魔女につくられし～専用）:dir
+ [replace]0x0000,rfrn->キャラST
+ [replace]0x0400,rfrn->キャラST
+ [replace]0x0800,rfrn->キャラST
+ [replace]0x0C00,rfrn->キャラST
+ [replace]0x1000,rfrn->キャラST
+ [replace]0x1400,rfrn->キャラST
+ [replace]0x1800,rfrn->キャラST
+ [replace]0x1C00,rfrn->キャラST
+ [replace]0x2000,rfrn->キャラST
+ [replace]0x2400,rfrn->キャラST
+ [replace]0x2800,rfrn->キャラST
+ [replace]0x2C00,rfrn->キャラST
+[back]
+[/group]
+
+
+
+----
+
+
+
+[group]キャラST
+[subject]▼【登録No.'+'_mem,-0x310,1,num,(--),%d'+'】'+'_mem,-0x30C,30,utf8,(no):dir
+
+ [subject]HP:calc,0x00,0,99999,unsigned
+ [subject]DP:calc,0x04,0,9999,unsigned
+
+[subject]状態異常＆欠損回復:toggle,0x08,0000000000000000,????????????????
+
+
+[subject]▼▼パーソナリティ:dir
+ [size]1
+ [subject]ファセット（職）:list,-0x1AC,rfrn->ファセット,0,1
+ [subject]スタンス:list,-0x1A8,rfrn->スタンス,0,1
+ [subject]成長タイプ:list,-0x1A4,rfrn->タイプ,0,1
+ [subject]性別:list,-0x1B4,rfrn->性別,0,1
+ [subject]ビジュアル:calc,-0x1B0,1,56,unsigned
+ [subject]利き手:list,-0x10C,rfrn->利き手,0,1
+ [subject]性格(表):list,-0x19C,rfrn->性格,0,1
+ [subject]裏の性格:list,-0x19B,rfrn->性格,0,1
+ [/size]
+ [subject]ボイスタイプ:calc,-0x198,0,0xffff,unsigned
+[back]
+
+ [subject]▼▼所持スキル:dir
+  [subject]スキル1:calc,-0x194,0,99,unsigned
+  [subject]スキル2:calc,-0x190,0,99,unsigned
+  [subject]スキル3:calc,-0x18C,0,99,unsigned
+  [subject]スキル4:calc,-0x188,0,99,unsigned
+  [subject]スキル5:calc,-0x184,0,99,unsigned
+  [subject]スキル6:calc,-0x180,0,99,unsigned
+  [subject]スキル7:calc,-0x17C,0,99,unsigned
+  [subject]スキル8:calc,-0x178,0,99,unsigned
+  [subject]スキル9:calc,-0x174,0,99,unsigned
+  [subject]スキル10:calc,-0x170,0,99,unsigned
+  [subject]スキル11:calc,-0x16C,0,99,unsigned
+  [subject]スキル12:calc,-0x168,0,99,unsigned
+ [back]
+
+ [size]1
+ [subject]因果数:calc,-0x1A0,0,99,unsigned
+ [subject]アニマクラリティ:calc,-0x140,-10,127,signed
+ [subject]レベル:calc,-0x13F,1,99,unsigned
+ [/size]
+
+ [subject]EXP:calc,-0x13C,0,0xffffffff,unsigned
+ [subject]総レベル:calc,-0x138,0,0xffff,unsigned
+ [subject]TOTAL EXP:calc,-0x134,0,0xffffffff,unsigned
+
+ [subject]最大HP:calc,-0x130,0,99999,unsigned
+ [subject]最大DP:calc,-0x12C,0,9999,unsigned
+ [subject]STR:calc,-0x128,0,9999,unsigned
+ [subject]CON:calc,-0x124,0,9999,unsigned
+ [subject]DMP:calc,-0x120,0,9999,unsigned
+ [subject]AGL:calc,-0x11C,0,9999,unsigned
+ [subject]DEX:calc,-0x118,0,9999,unsigned
+ [subject]ERS:calc,-0x114,0,9999,unsigned
+ [subject]LUC:calc,-0x110,-100,9999,signed
+
+[subject]▼▼相手への友好度:dir
+ [size]4
+ [subject]一括25人:b_calc,-0xF0,rfrn->友好,offset,0,20000,unsigned
+ [subject]1人目:calc,-0xF0,0,20000,unsigned
+ [subject]2人目:calc,-0xEC,0,20000,unsigned
+ [subject]3人目:calc,-0xE8,0,20000,unsigned
+ [subject]4人目:calc,-0xE4,0,20000,unsigned
+ [subject]5人目:calc,-0xE0,0,20000,unsigned
+ [subject]6人目:calc,-0xDC,0,20000,unsigned
+ [subject]7人目:calc,-0xD8,0,20000,unsigned
+ [subject]8人目:calc,-0xD4,0,20000,unsigned
+ [subject]9人目:calc,-0xD0,0,20000,unsigned
+ [subject]10人目:calc,-0xCC,0,20000,unsigned
+ [subject]11人目:calc,-0xC8,0,20000,unsigned
+ [subject]12人目:calc,-0xC4,0,20000,unsigned
+ [subject]13人目:calc,-0xC0,0,20000,unsigned
+ [subject]14人目:calc,-0xBC,0,20000,unsigned
+ [subject]15人目:calc,-0xB8,0,20000,unsigned
+ [subject]16人目:calc,-0xB4,0,20000,unsigned
+ [subject]17人目:calc,-0xB0,0,20000,unsigned
+ [subject]18人目:calc,-0xAC,0,20000,unsigned
+ [subject]19人目:calc,-0xA8,0,20000,unsigned
+ [subject]20人目:calc,-0xA4,0,20000,unsigned
+ [subject]21人目:calc,-0xA0,0,20000,unsigned
+ [subject]22人目:calc,-0x9C,0,20000,unsigned
+ [subject]23人目:calc,-0x98,0,20000,unsigned
+ [subject]24人目:calc,-0x94,0,20000,unsigned
+ [subject]25人目:calc,-0x90,0,20000,unsigned
+[back]
+
+[back]
+[/group]
+
+
+-----
+[group]性別
+男性
+女性
+性別不明
+[/group]
+
+[group]ファセット
+アステルナイト
+シノブシ
+シアトリカルスター
+マージナルメイズ
+ピアフォートレス
+マッドラプター
+ゴシックコッペリア
+デモンリーパー
+[/group]
+
+[group]スタンス
+スタンダード
+サニーサイド
+ムーンサイド
+[/group]
+
+[group]タイプ
+ナチュラル
+フラット
+シャープ
+ダブルフラット
+ダブルシャープ
+[/group]
+
+[group]利き手
+右手
+左手
+[/group]
+
+[group]性格
+勇敢
+熱血漢
+純真無垢
+天真爛漫
+聡明
+ニヒル
+猪突猛進
+完全主義
+潔癖症
+へそまがり
+頑固
+気まぐれ
+陽気
+ほがらか
+情熱化
+楽天家
+高慢
+勝ち気
+わがまま
+きまじめ
+几帳面
+情け深い
+心配性
+しっかり者
+寂しがり
+根暗
+冷静
+自己中心
+悪戯好き
+助平
+強運ピエロ
+凡人
+[/group]
+
+
+
+[group]友好
+0x00
+0x04
+0x08
+0x0C
+0x10
+0x14
+0x18
+0x1C
+0x20
+0x24
+0x28
+0x2C
+0x30
+0x34
+0x38
+0x3C
+0x40
+0x44
+0x48
+0x4C
+0x50
+0x54
+0x58
+0x5C
+0x60
+[/group]
+
+
+
+
+
+
+
+[group]enemall
+
+ [subject]▼【※名前は狂う場合有】'+'_mem,-0x44,30,utf8,(no):dir
+
+  [subject]HP:calc,0x88,0,999999,unsigned
+  [subject]DP:calc,0x8C,0,9999,unsigned
+
+ [size]4
+  [subject]最大HP:calc,0x0,0,999999,unsigned
+  [subject]最大DP:calc,0x4,0,99999,unsigned
+  [subject]物理＆魔法威力:calc,0x8,-1000,9999,signed
+  [subject]防御:calc,0xC,-1000,9999,signed
+  [subject]回避:calc,0x10,-1000,9999,signed
+  [subject]命中:calc,0x14,-1000,9999,signed
+  [subject]ST1:calc,0x18,-1000,9999,signed
+  [subject]スタンしにくさ:calc,0x1C,-1000,9999,signed
+  [subject]ST3:calc,0x20,-1000,9999,signed
+  [subject]行動速度:calc,0x24,-1000,9999,signed
+  [subject]ST5:calc,0x28,-1000,9999,signed
+  [subject]ST6:calc,0x2C,-1000,9999,signed
+  [subject]ST7(90):calc,0x30,-1000,9999,signed
+  [subject]斬撃耐性:calc,0x34,-200,200,signed
+  [subject]打撃耐性:calc,0x38,-200,200,signed
+  [subject]貫撃耐性:calc,0x3C,-200,200,signed
+  [subject]焔撃耐性:calc,0x40,-200,200,signed
+  [subject]泥撃耐性:calc,0x44,-200,200,signed
+  [subject]霧撃耐性:calc,0x48,-200,200,signed
+  [subject]呪毒耐:calc,0x4C,-200,200,signed
+  [subject]幻覚耐:calc,0x50,-200,200,signed
+  [subject]深淵耐:calc,0x54,-200,200,signed
+  [subject]錯乱耐:calc,0x58,-200,200,signed
+  [subject]驚愕耐:calc,0x5C,-200,200,signed
+  [subject]腐臭耐:calc,0x60,-200,200,signed
+  [subject]盾防:calc,0x64,-100,100,signed
+  [subject]与クリティカル＆部位ロスト:calc,0x68,-999,999,signed
+  [subject]クリティカル耐性:calc,0x6C,-999,999,signed
+  [subject]与スタン:calc,0x70,-999,999,signed
+  [subject]スタン耐性:calc,0x74,-999,999,signed
+ [/size]
+
+
+ [subject]部位欠損/_:bitlist,0x90,rfrn->欠損bit,1
+ [subject]状態異常/_:bitlist,0x94,rfrn->状態異常bit,1
+
+  [subject]獲得EXP:calc,-0x24,0,9999999,unsigned
+  [subject]獲得マナ:calc,-0x20,0,9999,unsigned
+
+  [subject]カルマ:calc,-0x1C,-99,99,signed
+  [subject]ドロップ確率:calc,-0x18,0,2500,unsigned
+  [subject]ドロップアイテムID:calc,-0x14,0,0xffffffff,unsigned
+
+  [subject]レアリティ:calc,-0x10,0,3,unsigned
+  [subject]ドロップがID品になる率:calc,-0x0C,0,100,signed
+  [subject]不明f8(2):calc,-0x08,0,0xffffffff,unsigned
+  [subject]不明fc(16):calc,-0x04,0,0xffffffff,unsigned
+
+ [subject]不明78:calc,0x78,0x0,0xffffffff,unsigned
+ [subject]不明7C:calc,0x7C,0x0,0xffffffff,unsigned
+ [subject]不明80:calc,0x80,0x0,0xffffffff,unsigned
+ [subject]不明84:calc,0x84,0x0,0xffffffff,unsigned
+
+ [back]
+
+
+
+
+[/group]
+
+
+
+[group]欠損bit
+中央
+左上
+右上
+左下
+右下
+（予備1
+（予備2
+（予備3
+[/group]
+
+
+[group]状態異常bit
+呪毒
+幻覚
+深淵
+錯乱
+驚愕
+腐臭
+（予備1
+（予備2
+[/group]
+
+
+
+[/involve]
+
+-----------------------------------------------
+-----------------------------------------------
+
+[adjustment]search,0x0E0F5010,F091910?,0x00100000,0x1FF00000,0x10
+[replace]0x0E0F5050,rfrn->all
+[/adjustment]
+
+[subject]分割:split,line,0,80,7
+
+[adjustment]dialog,0x010FAB48,rfrn->dia2,0x00100000,0x1FF00000,0x10
+[replace]0x010FAB48,rfrn->charaall1
+[/adjustment]
+
+[adjustment]dialog,0x020FAB48,rfrn->dia2,0x00100000,0x1FF00000,0x10
+[replace]0x020FAB48,rfrn->charaall2
+[/adjustment]
+
+[adjustment]dialog,0x0E0FAB48,rfrn->dia2,0x00100000,0x1FF00000,0x10
+[replace]0x0E0FAB48,rfrn->charaall3
+[/adjustment]
+
+[adjustment]dialog,0x0E0FAB48,rfrn->dia2,0x00100000,0x1FF00000,0x10
+[replace]0x0E0FAB48,rfrn->charaall4
+[/adjustment]
+
+
+[subject]分割:split,line,0,80,7
+
+[adjustment]search,0x0E0FA89A,0000E9AD94E5A5B3E381ABE381,0x00100000,0x1FF00000,0x10
+[replace]0x0E0FAB48,rfrn->charaall5test
+[/adjustment]
+　///フレーバーテキストのデフォルト文「魔女につくられし人形兵～」の出だし。
+
+
+[subject]分割:split,line,0,80,7
+[subject]分割:split,line,0,80,7
+
+
+[subject]戦闘中の敵1体（※その戦闘のみで次回はだめ）:dir
+
+ [subject]※獲得EXPで検索▼:dir
+ [adjustment]dialog,0x29ECE9DC,rfrn->dia_enem,0x14000000,0x3FF00000,0x10
+ [replace]0x29ECEA00,rfrn->enemall
+ [/adjustment]
+ [back]
+
+ [subject]※最大HPで検索▼:dir
+ [adjustment]dialog,0x29ECEA00,rfrn->dia_enem2,0x14000000,0x3FF00000,0x10
+ [replace]0x29ECEA00,rfrn->enemall
+ [/adjustment]
+ [back]
+
+[back]
+
+
+[/script]
+
+
+
+
+
+----------------------------
+----------------------------
+◆キャラ名の文字化けに付いて
+使用される文字コードはUTF-8。
+SpoilerAL上でキャラ名を表示する場合、
+SpoilerALのバージョンが6.2以降が条件。
+
+Spoiler AL 6.2
+https://github.com/sceawung/source
+
+----------------------------
+
+memo
+  [subject]名前変更(※v6.2用):string,0x**,30,utf8
+  [subject]名前表示(※v6.2用)：'+'_mem,0xB8,30,utf8,(no):dir
+  [back]
+
+
+
+----------------------------
+（SSG改定）
+2019/11/14
+　初版
+
