@@ -126,22 +126,50 @@ namespace RefrainSaveEditor
 		}
 		#endregion
 		private RefrainSaveFile m_sv = null;
-		public void SetRefrainSaveFile(RefrainSaveFile v)
+		public RefrainSaveFile RefrainSaveFile
 		{
-			m_sv = v;
+			get { return m_sv; }
+			set
+			{
+				m_sv = value;
+				if (m_sv!=null)
+				{
+					m_sv.DataChanged += M_sv_DataChanged;
+					m_sv.CharIndexChanged += M_sv_DataChanged;
+				}
+			}
 		}
-		private int m_Offset = 0;
+		private int m_Index = 0;
+		public int Index
+		{
+			get { return m_Index; }
+			set
+			{
+				int v = value;
+				if (v < 0) v = 0; else if (v > 11) v = 11;
+				if (m_Index !=v)
+				{
+					m_Index = v;
+					GetValue();
+				}
+
+
+			}
+		}
+		private void M_sv_DataChanged(object sender, EventArgs e)
+		{
+			if (refFlag == true) return;
+			if (m_sv != null)
+			{
+				GetValue();
+				//OnValueChanged(new EventArgs());
+			}
+		}
+
+		private int m_Offset = 0x176;
 		public int Offset
 		{
 			get { return m_Offset; }
-			set
-			{
-				if (m_Offset != value)
-				{
-					m_Offset = value;
-					//GetValue();
-				}
-			}
 		}
 
 		private ComboBox m_Cmb = new ComboBox();
@@ -282,7 +310,8 @@ namespace RefrainSaveEditor
 			set
 			{
 				int v = value;
-				if (v >= m_SkillNames.Length) v = m_SkillNames.Length - 1;
+				if (v < 0) v = 0;
+				else if (v >= m_SkillNames.Length) v = m_SkillNames.Length - 1;
 
 				if (m_Cmb.SelectedIndex != v)
 				{
@@ -302,7 +331,7 @@ namespace RefrainSaveEditor
 				return;
 			}
 			byte [] ret = new byte[0];
-			ret = m_sv.GetCharData(m_Offset, 4);
+			ret = m_sv.GetCharData(m_Offset+ m_Index*4, 4);
 			int idx = (int)((int)ret[0] + ((int)ret[1] << 8) + ((int)ret[2] << 16) + ((int)ret[3] << 24));
 			refFlag = true;
 			SelectedIndex = idx;
@@ -321,7 +350,7 @@ namespace RefrainSaveEditor
 			ret[1] = (byte)((it>>8) & 0xFF);
 			ret[2] = (byte)((it>>16) & 0xFF);
 			ret[3] = (byte)((it>>24) & 0xFF);
-			m_sv.SetCharData(m_Offset, ret);
+			m_sv.SetCharData(m_Offset+ m_Index*4, ret);
 		}
 	}
 }

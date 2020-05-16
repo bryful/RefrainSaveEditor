@@ -17,20 +17,17 @@ using Codeplex.Data;
 /// </summary>
 namespace RefrainSaveEditor
 {
-	public partial class Form1 : Form
+	public partial class Form2 : Form
 	{
 		SkillValue[] m_skills = new SkillValue[12];
-		ParamValue[] m_ParamValues = new ParamValue[25];
 		//-------------------------------------------------------------
 		/// <summary>
 		/// コンストラクタ
 		/// </summary>
-		public Form1()
+		public Form2()
 		{
 			InitializeComponent();
 
-
-			#region Controls
 			m_skills[0] = vS0;
 			m_skills[1] = vS1;
 			m_skills[2] = vS2;
@@ -44,32 +41,7 @@ namespace RefrainSaveEditor
 			m_skills[10] = vS10;
 			m_skills[11] = vS11;
 
-			m_ParamValues[0] = paramValue0;
-			m_ParamValues[1] = paramValue1;
-			m_ParamValues[2] = paramValue2;
-			m_ParamValues[3] = paramValue3;
-			m_ParamValues[4] = paramValue4;
-			m_ParamValues[5] = paramValue5;
-			m_ParamValues[6] = paramValue6;
-			m_ParamValues[7] = paramValue7;
-			m_ParamValues[8] = paramValue8;
-			m_ParamValues[9] = paramValue9;
-			m_ParamValues[10] = paramValue10;
-			m_ParamValues[11] = paramValue11;
-			m_ParamValues[12] = paramValue12;
-			m_ParamValues[13] = paramValue13;
-			m_ParamValues[14] = paramValue14;
-			m_ParamValues[15] = paramValue15;
-			m_ParamValues[16] = paramValue16;
-			m_ParamValues[17] = paramValue17;
-			m_ParamValues[18] = paramValue18;
-			m_ParamValues[19] = paramValue19;
-			m_ParamValues[20] = paramValue20;
-			m_ParamValues[21] = paramValue21;
-			m_ParamValues[22] = paramValue22;
-			m_ParamValues[23] = paramValue23;
-			m_ParamValues[24] = paramValue24;
-			#endregion
+			refrainSaveFile1.SetSkils(m_skills);
 
 		}
 		/// <summary>
@@ -92,6 +64,8 @@ namespace RefrainSaveEditor
 			if (pref.Load())
 			{
 				bool ok = false;
+				Size sz = pref.GetSize("Size", out ok);
+				if (ok) this.Size = sz;
 				Point p = pref.GetPoint("Point", out ok);
 				if (ok) this.Location = p;
 				string fp = pref.GetString("FilePath", out ok);
@@ -112,6 +86,7 @@ namespace RefrainSaveEditor
 		{
 			//設定ファイルの保存
 			JsonPref pref = new JsonPref();
+			pref.SetSize("Size", this.Size);
 			pref.SetPoint("Point", this.Location);
 
 			pref.SetString("FilePath", refrainSaveFile1.FilePath);
@@ -176,6 +151,21 @@ namespace RefrainSaveEditor
 		{
 			AppInfoDialog.ShowAppInfoDialog();
 		}
+		private void button1_Click(object sender, EventArgs e)
+		{
+
+			JsonPref j = new JsonPref();
+
+			int[] aaa = new int[] { 78, 9, 12 };
+			double[] bbb = new double[] { 0.7, 0.01, 0.12 };
+			string[] ccc = new string[] { "eee", "sfskjbF", "13" };
+			j.SetIntArray("aa", aaa);
+			j.SetDoubleArray("bb", bbb);
+			j.SetStringArray("cc", ccc);
+
+			MessageBox.Show(j.ToJson());
+
+		}
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -200,7 +190,7 @@ namespace RefrainSaveEditor
 			refrainSaveFile1.SaveFileDialog();
 		}
 
-		private void SetupSkill_Click(object sender, EventArgs e)
+		private void button2_Click(object sender, EventArgs e)
 		{
 			int sel = cmbTarget.SelectedIndex;
 			if (sel < 0) return;
@@ -332,25 +322,6 @@ namespace RefrainSaveEditor
 		private void btnCheckExp_Click(object sender, EventArgs e)
 		{
 			refrainSaveFile1.ChkExp();
-		}
-		public void SetAll()
-		{
-			refrainSaveFile1.NoEvent = true;
-			for (int i=0; i<m_ParamValues.Length;i++)
-			{
-				if (m_ParamValues[i].IsModif == true)
-				{
-					m_ParamValues[i].SetValue();
-				}
-			}
-			refrainSaveFile1.NoEvent = false;
-			refrainSaveFile1.Refresh();
-
-		}
-
-		private void btnAllSet_Click(object sender, EventArgs e)
-		{
-			SetAll();
 		}
 	}
 }

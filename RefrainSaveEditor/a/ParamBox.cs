@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace RefrainSaveEditor
 {
-	public class ParamBox : Control
+	public class ParamBox1 : Control
 	{
 		private Label Label1 = new Label();
 		private TextBox TextBox1 = new TextBox();
 		private FlowLayoutPanel fp = new FlowLayoutPanel();
-		public ParamBox()
+		public ParamBox1()
 		{
 			this.Size = new Size(120, 20);
 			this.Margin = new Padding(0);

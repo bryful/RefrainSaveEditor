@@ -83,6 +83,7 @@ namespace RefrainSaveEditor
 			{
 				m_Data[adr + i] = d[i];
 			}
+			OnDataChanged(new EventArgs());
 		}
 		public string GetString(int adr,int sz)
 		{
@@ -120,6 +121,7 @@ namespace RefrainSaveEditor
 					m_Data[offset + i] = 0;
 				}
 			}
+			OnDataChanged(new EventArgs());
 		}
 
 		public int GetIntData(int adr)
@@ -203,6 +205,7 @@ namespace RefrainSaveEditor
 					m_Data[pos + i] = 0;
 				}
 			}
+			OnDataChanged(new EventArgs());
 		}
 
 		// *******************************************************************************************

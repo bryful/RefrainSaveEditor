@@ -117,64 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="String1" xml:space="preserve">
-    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;CheatTable CheatEngineTableVersion="28"&gt;
-  &lt;Forms&gt;
-    &lt;UDF1 Class="TCEForm" Encoding="Ascii85"&gt;b7Ej%2nldAU:MM2b.}cxWeIh0Gi32eO*Ft]WMuP5%{mcIVgA6t9Fkwal+AgInNpI$=7,zGoLEqjnV-i7R=ffx00&lt;/UDF1&gt;
-  &lt;/Forms&gt;
-  &lt;CheatEntries&gt;
-    &lt;CheatEntry&gt;
-      &lt;ID&gt;1&lt;/ID&gt;
-      &lt;Description&gt;"MANA"&lt;/Description&gt;
-      &lt;LastState Value="11918" RealAddress="$MANA"/&gt;
-      &lt;VariableType&gt;4 Bytes&lt;/VariableType&gt;
-      &lt;Address&gt;$MANA&lt;/Address&gt;
-    &lt;/CheatEntry&gt;
-    &lt;CheatEntry&gt;
-      &lt;ID&gt;2&lt;/ID&gt;
-      &lt;Description&gt;"KARMA"&lt;/Description&gt;
-      &lt;LastState Value="3" RealAddress="$KARUMA"/&gt;
-      &lt;VariableType&gt;4 Bytes&lt;/VariableType&gt;
-      &lt;Address&gt;$KARUMA&lt;/Address&gt;
-    &lt;/CheatEntry&gt;
-    &lt;CheatEntry&gt;
-      &lt;ID&gt;3&lt;/ID&gt;
-      &lt;Description&gt;"Reinforce"&lt;/Description&gt;
-      &lt;LastState Value="65" RealAddress="$RF"/&gt;
-      &lt;VariableType&gt;4 Bytes&lt;/VariableType&gt;
-      &lt;Address&gt;$RF&lt;/Address&gt;
-    &lt;/CheatEntry&gt;
-    &lt;CheatEntry&gt;
-      &lt;ID&gt;4&lt;/ID&gt;
-      &lt;Description&gt;"Carry Over"&lt;/Description&gt;
-      &lt;LastState Value="0" RealAddress="$CarryOver"/&gt;
-      &lt;VariableType&gt;4 Bytes&lt;/VariableType&gt;
-      &lt;Address&gt;$CarryOver&lt;/Address&gt;
-    &lt;/CheatEntry&gt;
-  &lt;/CheatEntries&gt;
-  &lt;UserdefinedSymbols/&gt;
-&lt;/CheatTable&gt;</value>
-  </data>
-  <data name="String2" xml:space="preserve">
-    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;CheatTable CheatEngineTableVersion="28"&gt;
-  &lt;Forms&gt;
-    &lt;UDF1 Class="TCEForm" Encoding="Ascii85"&gt;b7Ej%2nldAU:MM2b.}cxWeIh0Gi32eO*Ft]WMuP5%{mcIVgA6t9Fkwal+AgInNpI$=7,zGoLEqjnV-i7R=ffx00&lt;/UDF1&gt;
-  &lt;/Forms&gt;
-  &lt;CheatEntries&gt;
-$DATA
-  &lt;/CheatEntries&gt;
-    &lt;UserdefinedSymbols/&gt;
-&lt;/CheatTable&gt;</value>
-  </data>
-  <data name="String3" xml:space="preserve">
-    <value>&lt;CheatEntry&gt;
-      &lt;ID&gt;1&lt;/ID&gt;
-      &lt;Description&gt;"$INFO"&lt;/Description&gt;
-      &lt;LastState Value="11918" RealAddress="$ADR"/&gt;
-      &lt;VariableType&gt;$LENGTH Bytes&lt;/VariableType&gt;
-      &lt;Address&gt;$ADR&lt;/Address&gt;
-    &lt;/CheatEntry&gt;</value>
-  </data>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
+  <metadata name="refrainSaveFile1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>248, 17</value>
+  </metadata>
 </root>

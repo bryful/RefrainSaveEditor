@@ -11,21 +11,7 @@ using System.IO;
 
 namespace RefrainSaveEditor
 {
-	public enum ValueType
-	{
-		SBYTE = 0,
-		BYTE,
-		SHORT,
-		USHORT,
-		INT,
-		UINT,
-		STRING
-	};
-	public enum ValueTarget
-	{
-		CHAR_INDEX,
-		ABS_POS
-	}
+
 	public class RefrainValue : Control
 	{
 		#region Event
@@ -303,6 +289,7 @@ namespace RefrainSaveEditor
 					SetCharValue();
 					break;
 				case ValueTarget.ABS_POS:
+					SetAbsValue();
 					break;
 			}
 

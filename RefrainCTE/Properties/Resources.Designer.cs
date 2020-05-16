@@ -82,5 +82,38 @@ namespace RefrainCTE.Properties {
                 return ResourceManager.GetString("String1", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;CheatTable CheatEngineTableVersion=&quot;28&quot;&gt;
+        ///  &lt;Forms&gt;
+        ///    &lt;UDF1 Class=&quot;TCEForm&quot; Encoding=&quot;Ascii85&quot;&gt;b7Ej%2nldAU:MM2b.}cxWeIh0Gi32eO*Ft]WMuP5%{mcIVgA6t9Fkwal+AgInNpI$=7,zGoLEqjnV-i7R=ffx00&lt;/UDF1&gt;
+        ///  &lt;/Forms&gt;
+        ///  &lt;CheatEntries&gt;
+        ///$DATA
+        ///  &lt;/CheatEntries&gt;
+        ///    &lt;UserdefinedSymbols/&gt;
+        ///&lt;/CheatTable&gt; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String2 {
+            get {
+                return ResourceManager.GetString("String2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;CheatEntry&gt;
+        ///      &lt;ID&gt;1&lt;/ID&gt;
+        ///      &lt;Description&gt;&quot;$INFO&quot;&lt;/Description&gt;
+        ///      &lt;LastState Value=&quot;11918&quot; RealAddress=&quot;$ADR&quot;/&gt;
+        ///      &lt;VariableType&gt;$LENGTH Bytes&lt;/VariableType&gt;
+        ///      &lt;Address&gt;$ADR&lt;/Address&gt;
+        ///    &lt;/CheatEntry&gt; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string String3 {
+            get {
+                return ResourceManager.GetString("String3", resourceCulture);
+            }
+        }
     }
 }

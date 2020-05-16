@@ -37,6 +37,8 @@
 			this.numCO = new System.Windows.Forms.NumericUpDown();
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnExport = new System.Windows.Forms.Button();
+			this.numCharHP = new RefrainCTE.NumBox();
+			this.btnExport2 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numMana)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numKARUMA)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numRF)).BeginInit();
@@ -129,11 +131,37 @@
 			this.btnExport.UseVisualStyleBackColor = true;
 			this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
 			// 
+			// numCharHP
+			// 
+			this.numCharHP.Caption = "キャラのHP";
+			this.numCharHP.Font = new System.Drawing.Font("MS UI Gothic", 14F);
+			this.numCharHP.Location = new System.Drawing.Point(19, 198);
+			this.numCharHP.Margin = new System.Windows.Forms.Padding(0);
+			this.numCharHP.MaximumSize = new System.Drawing.Size(235, 27);
+			this.numCharHP.MinimumSize = new System.Drawing.Size(235, 27);
+			this.numCharHP.Name = "numCharHP";
+			this.numCharHP.Size = new System.Drawing.Size(235, 27);
+			this.numCharHP.TabIndex = 9;
+			this.numCharHP.Text = "numBox1";
+			this.numCharHP.Value = 0;
+			// 
+			// btnExport2
+			// 
+			this.btnExport2.Location = new System.Drawing.Point(179, 240);
+			this.btnExport2.Name = "btnExport2";
+			this.btnExport2.Size = new System.Drawing.Size(75, 23);
+			this.btnExport2.TabIndex = 10;
+			this.btnExport2.Text = "Export";
+			this.btnExport2.UseVisualStyleBackColor = true;
+			this.btnExport2.Click += new System.EventHandler(this.btnExport2_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(291, 207);
+			this.ClientSize = new System.Drawing.Size(312, 290);
+			this.Controls.Add(this.btnExport2);
+			this.Controls.Add(this.numCharHP);
 			this.Controls.Add(this.btnExport);
 			this.Controls.Add(this.numCO);
 			this.Controls.Add(this.label4);
@@ -166,6 +194,8 @@
 		private System.Windows.Forms.NumericUpDown numCO;
 		protected System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button btnExport;
+		private NumBox numCharHP;
+		private System.Windows.Forms.Button btnExport2;
 	}
 }
 

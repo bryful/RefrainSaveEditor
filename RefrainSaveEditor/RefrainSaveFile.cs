@@ -16,10 +16,17 @@ namespace RefrainSaveEditor
 	{
 		// *******************************************************************************************
 		#region Event
+		public bool NoEvent = false;
+
 		public event EventHandler DataChanged;
         protected virtual void OnDataChanged(EventArgs e)
         {
+			if (NoEvent == true) return;
             DataChanged?.Invoke(this, e);
+		}
+		public void Refresh()
+		{
+			OnDataChanged(new EventArgs());
 		}
 		public event EventHandler CharIndexChanged;
         protected virtual void OnCharIndexChanged(EventArgs e)
@@ -30,22 +37,6 @@ namespace RefrainSaveEditor
 		// *******************************************************************************************
 
 		#region Controls
-
-		private ListBox m_CharInfo = null;
-		public ListBox CharInfo
-		{
-			get { return m_CharInfo; }
-			set
-			{
-				m_CharInfo = value;
-				if(m_CharInfo!=null)
-				{
-					m_CharInfo.Items.Clear();
-					m_CharInfo.Items.AddRange(GetCharInfo());
-				}
-			}
-		}
-
 
 		private ListBox m_CharList = null;
 		public ListBox CharList
@@ -70,260 +61,7 @@ namespace RefrainSaveEditor
 			CharIndex =  m_CharList.SelectedIndex;
 		}
 
-		private RefrainValue m_PlayerName = null;
-		public RefrainValue PlayerName
-		{
-			get { return m_PlayerName; }
-			set
-			{
-				m_PlayerName = value;
-				if(m_PlayerName != null)
-				{
-					m_PlayerName.Caption = "Player Name";
-					m_PlayerName.ValueType = ValueType.STRING;
-					m_PlayerName.ValueTarget = ValueTarget.ABS_POS;
-					m_PlayerName.SetRefrainSaveFile(this);
-					m_PlayerName.StringLength = 0x36;
-					m_PlayerName.Offset = 0x20;
-				}
-			}
-		}
-		private RefrainValue m_CoinValue = null;
-		public RefrainValue CoinValue
-		{
-			get { return m_CoinValue; }
-			set
-			{
-				m_CoinValue = value;
-				if(m_CoinValue != null)
-				{
-					m_CoinValue.Caption = "銀貨";
-					m_CoinValue.ValueType = ValueType.INT;
-					m_CoinValue.ValueTarget = ValueTarget.ABS_POS;
-					m_CoinValue.Offset = 0x56;
-					m_CoinValue.SetRefrainSaveFile(this);
-				}
-			}
-		}
-		
-		private RefrainValue m_ManaValue = null;
-		public RefrainValue ManaValue
-		{
-			get { return m_ManaValue; }
-			set
-			{
-				m_ManaValue = value;
-				if(m_ManaValue != null)
-				{
-					m_ManaValue.Caption = "Mana";
-					m_ManaValue.ValueType = ValueType.INT;
-					m_ManaValue.ValueTarget = ValueTarget.ABS_POS;
-					m_ManaValue.Offset = 0x5E;
-					m_ManaValue.SetRefrainSaveFile(this);
-				}
-			}
-		}
-		private RefrainValue m_KarumaValue = null;
-		public RefrainValue KarumaValue
-		{
-			get { return m_KarumaValue; }
-			set
-			{
-				m_KarumaValue = value;
-				if(m_KarumaValue != null)
-				{
-					m_KarumaValue.Caption = "カルマ";
-					m_KarumaValue.ValueType = ValueType.INT;
-					m_KarumaValue.ValueTarget = ValueTarget.ABS_POS;
-					m_KarumaValue.MaxValue = 100;
-					m_KarumaValue.Offset = 0x62;
-					m_KarumaValue.SetRefrainSaveFile(this);
-				}
-			}
-		}
 
-		// Char 
-		private RefrainValue m_CharName = null;
-		public RefrainValue CharNmae
-		{
-			get { return m_CharName; }
-			set
-			{
-				m_CharName = value;
-				if(m_CharName != null)
-				{
-					m_CharName.Caption = "NAME";
-					m_CharName.ValueType = ValueType.STRING;
-					m_CharName.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_CharName.Offset = 0x05;
-					m_CharName.StringLength = 0x42;
-					m_CharName.SetRefrainSaveFile(this);
-				}
-			}
-		}
-		private RefrainValue m_CharShortName = null;
-		public RefrainValue CharShortNmae
-		{
-			get { return m_CharShortName; }
-			set
-			{
-				m_CharShortName = value;
-				if(m_CharShortName != null)
-				{
-					m_CharShortName.Caption = "SHORT NAME";
-					m_CharShortName.ValueType = ValueType.STRING;
-					m_CharShortName.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_CharShortName.Offset = 0x47;
-					m_CharShortName.StringLength = 0x1E;
-					m_CharShortName.SetRefrainSaveFile(this);
-				}
-			}
-		}
-		private RefrainValue m_CharFlavorText = null;
-		public RefrainValue CharFlavorText
-		{
-			get { return m_CharFlavorText; }
-			set
-			{
-				m_CharFlavorText = value;
-				if(m_CharFlavorText != null)
-				{
-					m_CharFlavorText.Caption = "Flavor Text";
-					m_CharFlavorText.ValueType = ValueType.STRING;
-					m_CharFlavorText.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_CharFlavorText.Offset = 0x65;
-					m_CharFlavorText.StringLength = 0xF6;
-					m_CharFlavorText.SetRefrainSaveFile(this);
-				}
-			}
-		}
-
-		private RefrainValue m_AnimaClarity = null;
-		public RefrainValue AnimaClarity
-		{
-			get { return m_AnimaClarity; }
-			set
-			{
-				m_AnimaClarity = value;
-				if(m_AnimaClarity != null)
-				{
-					m_AnimaClarity.Caption = "アニマクラリティ";
-					m_AnimaClarity.ValueType = ValueType.BYTE;
-					m_AnimaClarity.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_AnimaClarity.Offset = 0x01CA;
-					m_AnimaClarity.SetRefrainSaveFile(this);
-				}
-			}
-		}
-		private RefrainValue m_Level = null;
-		public RefrainValue CharLevel
-		{
-			get { return m_Level; }
-			set
-			{
-				m_Level = value;
-				if(m_Level != null)
-				{
-					m_Level.Caption = "Level";
-					m_Level.ValueType = ValueType.BYTE;
-					m_Level.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_Level.Offset = 0x01CB;
-					m_Level.SetRefrainSaveFile(this);
-				}
-			}
-		}
-		private RefrainValue m_FullLevel = null;
-		public RefrainValue CharFullLevel
-		{
-			get { return m_FullLevel; }
-			set
-			{
-				m_FullLevel = value;
-				if(m_FullLevel != null)
-				{
-					m_FullLevel.Caption = "総Level";
-					m_FullLevel.ValueType = ValueType.INT;
-					m_FullLevel.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_FullLevel.Offset = 0x01D0;
-					m_FullLevel.SetRefrainSaveFile(this);
-				}
-			}
-		}
-		private RefrainValue m_CharHP = null;
-		public RefrainValue CharHP
-		{
-			get { return m_CharHP; }
-			set
-			{
-				m_CharHP = value;
-				if(m_CharHP != null)
-				{
-					m_CharHP.Caption = "HP";
-					m_CharHP.ValueType = ValueType.INT;
-					m_CharHP.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_CharHP.Offset = 0x0308;
-					m_CharHP.SetRefrainSaveFile(this);
-				}
-			}
-		}
-		private RefrainValue m_CharDP = null;
-		public RefrainValue CharDP
-		{
-			get { return m_CharDP; }
-			set
-			{
-				m_CharDP = value;
-				if(m_CharDP != null)
-				{
-					m_CharDP.Caption = "DP";
-					m_CharDP.ValueType = ValueType.INT;
-					m_CharDP.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_CharDP.Offset = 0x030C;
-					m_CharDP.SetRefrainSaveFile(this);
-				}
-			}
-		}
-
-
-		//Causal number
-		private RefrainValue m_CausalNum = null;
-		public RefrainValue CausalNum
-		{
-			get { return m_CausalNum; }
-			set
-			{
-				m_CausalNum = value;
-				if(m_CausalNum != null)
-				{
-					m_CausalNum.Caption = "因果数";
-					m_CausalNum.ValueType = ValueType.INT;
-					m_CausalNum.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_CausalNum.Offset = 0x16C;
-					m_CausalNum.MaxValue = 99;
-					m_CausalNum.SetRefrainSaveFile(this);
-				}
-			}
-		}
-
-
-		private RefrainValue m_EXP = null;
-		public RefrainValue EXP
-		{
-			get { return m_EXP; }
-			set
-			{
-				m_EXP = value;
-				if(m_EXP != null)
-				{
-					m_EXP.Caption = "EXP";
-					m_EXP.ValueType = ValueType.INT;
-					m_EXP.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_EXP.MaxValue = 0x7FFFFFFF;
-					m_EXP.SetRefrainSaveFile(this);
-					m_EXP.Offset = 0x1cc;
-				}
-			}
-		}
 		public void ChkExp()
 		{
 			string[] names = CharNames();
@@ -345,24 +83,7 @@ namespace RefrainSaveEditor
 			}
 			OnDataChanged(new EventArgs());
 		}
-		private RefrainValue m_TotalEXP = null;
-		public RefrainValue TotalEXP
-		{
-			get { return m_TotalEXP; }
-			set
-			{
-				m_TotalEXP = value;
-				if(m_TotalEXP != null)
-				{
-					m_TotalEXP.ValueType = ValueType.INT;
-					m_TotalEXP.ValueTarget = ValueTarget.CHAR_INDEX;
-					m_TotalEXP.SetRefrainSaveFile(this);
-					m_TotalEXP.MaxValue = 0x7FFFFFFF;
-					m_TotalEXP.Offset = 0x1D4;
-				}
-			}
-		}
-
+		/*
 		private SkillValue[] m_skills = new SkillValue[12];
 		public void SetSkils(SkillValue [] ss)
 		{
@@ -378,7 +99,7 @@ namespace RefrainSaveEditor
 				m_skills[i].SetRefrainSaveFile(this);
 			}
 		}
-
+		*/
 		#endregion
 
 		#region FilePath
@@ -408,40 +129,22 @@ namespace RefrainSaveEditor
 		// *******************************************************************************************
 		public RefrainSaveFile()		
 		{
-			SetSkils(null);
+			NoEvent = true;
+			//SetSkils(null);
 			this.DataChanged += RefrainSaveFile_DataChanged;
 			this.CharIndexChanged += RefrainSaveFile_DataChanged;
+			NoEvent = false;
+
 		}
 		private void RefrainSaveFile_DataChanged(object sender, EventArgs e)
 		{
-			if (m_PlayerName != null) { m_PlayerName.GetValue(); }
-			if (m_CoinValue != null) { m_CoinValue.GetValue(); }
-			if (m_ManaValue != null) { m_ManaValue.GetValue(); }
-			if (m_KarumaValue != null) { m_KarumaValue.GetValue(); }
-
-			if (m_CharName != null) { m_CharName.GetValue(); }
-			if (m_CharShortName != null) { m_CharShortName.GetValue(); }
-			if (m_CharFlavorText != null) { m_CharFlavorText.GetValue(); }
-			if (m_AnimaClarity != null) { m_AnimaClarity.GetValue(); }
-			if (m_Level != null) { m_Level.GetValue(); }
-			if (m_FullLevel != null) { m_FullLevel.GetValue(); }
-			if (m_CharHP != null) { m_CharHP.GetValue(); }
-			if (m_CharDP != null) { m_CharDP.GetValue(); }
-
-
-			if (m_EXP != null) { m_EXP.GetValue(); }
-			if (m_TotalEXP != null) { m_TotalEXP.GetValue(); }
-			if (m_CausalNum != null) { m_CausalNum.GetValue(); }
-			
-			if(m_CharInfo!=null)
-			{
-					m_CharInfo.Items.Clear();
-					m_CharInfo.Items.AddRange(GetCharInfo());
-			}
+			if (NoEvent == true) return;
+			/*
 			for (int i=0; i<12;i++)
 			{
 				if (m_skills[i] != null) m_skills[i].GetValue();
 			}
+			*/
 		}
 
 		 // *******************************************************************************************
