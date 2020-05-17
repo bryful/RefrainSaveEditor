@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
+using Codeplex.Data;
+using BRY;
 
 namespace RefrainCTE
 {
@@ -46,7 +48,10 @@ namespace RefrainCTE
 			-0x114,//ERS
 			-0x110,//LUC
 			-0x10C,//利き手
-			-0x0F0//相手への友好度1人目
+			-0x0F0,//相手への友好度1人目
+			-0x0EC,//相手への友好度2人目
+			-0x0E8,//相手への友好度3人目
+			-0x0E4,//相手への友好度4人目
 		};
 		string[] CharOffsetName = new string[]
 		{
@@ -77,7 +82,10 @@ namespace RefrainCTE
 			"ERS",
 			"LUC",
 			"利き手",
-			"相手への友好度1人目"
+			"相手への友好度1人目",
+			"相手への友好度2人目",
+			"相手への友好度3人目",
+			"相手への友好度4人目"
 		};
 
 		NumericUpDown[] nums = new NumericUpDown[4];
@@ -241,6 +249,26 @@ namespace RefrainCTE
 					sw.Close();
 				}
 			}
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+			//設定ファイルの読み込み
+			JsonPref pref = new JsonPref();
+			if (pref.Load())
+			{
+				bool ok = false;
+				Point p = pref.GetPoint("Point", out ok);
+				if (ok) this.Location = p;
+			}
+		}
+
+		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+		{
+						//設定ファイルの保存
+			JsonPref pref = new JsonPref();
+			pref.SetPoint("Point", this.Location);
+			pref.Save();
 		}
 	}
 }

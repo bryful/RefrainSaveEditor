@@ -219,6 +219,11 @@ namespace RefrainSaveEditor
 			get { return Label.Width; }
 			set { Label.Width = value; }
 		}
+		public int ValueWidth
+		{
+			get { return m_Cmb.Width; }
+			set { m_Cmb.Width = value; }
+		}
 
 		private ComboBox m_Cmb = new ComboBox();
 

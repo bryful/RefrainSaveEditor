@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("RefrainSaveEditor")]
-[assembly: AssemblyDescription("アプリのスケルトン")]
+[assembly: AssemblyDescription("ルフランの地下迷宮と魔女ノ旅団")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("bry-ful")]
 [assembly: AssemblyProduct("RefrainSaveEditor")]
