@@ -97,6 +97,9 @@
     <Compile Include="AppInfoDialog.Designer.cs">
       <DependentUpon>AppInfoDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="BodyDamage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CombValue.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -160,6 +163,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Body01.png" />
+    <None Include="Resources\Body02.png" />
+    <None Include="Resources\Body03.png" />
+    <None Include="Resources\Body04.png" />
+    <None Include="Resources\Body05.png" />
+    <None Include="Resources\BodyBase.png" />
     <Content Include="SE.ico" />
     <Content Include="Skelton.ico" />
   </ItemGroup>
