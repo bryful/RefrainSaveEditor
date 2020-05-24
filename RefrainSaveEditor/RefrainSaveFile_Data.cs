@@ -305,35 +305,71 @@ namespace RefrainSaveEditor
 			return ret.ToArray();
 		}
 		// *******************************************************************************************
-		/*
-		public string PalyerName
+		public int CharNummber(int idx)
 		{
-			get
+			if (idx < 0)
 			{
-				string ret = "";
-				if (IsEnabled == true)
+				return 0;
+			}
+			int adr = GetCharAdr(idx) + 1;
+			return (int)m_Data[adr];
+		}
+		public int [] CharNummbers()
+		{
+			if (m_Data.Length<=0)
+			{
+				return new int[0];
+
+			}
+			List<int> ret = new List<int>();
+			for(int i=0; i<60;i++)
+			{
+				int v = CharNummber(i);
+				if (v>=0)
 				{
-					ret = GetString(0x20, 0x36);
+					ret.Add(v);
 				}
-				return ret;
+			}
+			return ret.ToArray();
+		}
+		// *******************************************************************************************
+		public int [] GetCharFriendship()
+		{
+			int[] ret = new int[0];
+			if (m_Data.Length<=0)
+			{
+				return new int[0];
+			}
+			List<int> ary = new List<int>();
+			string[] n = CharNames();
+			int cnt = n.Length;
+			int adr = CharAdr + 0x218;
+			for(int i=0; i<cnt;i++)
+			{
+				int v = (int)m_Data[adr] + ((int)m_Data[adr + 1] << 8) + ((int)m_Data[adr + 2] << 16) + ((int)m_Data[adr + 3] << 24);
+				ary.Add(v);
+				adr += 4;
+			}
+			ret = ary.ToArray();
+			return ret;
+		}
+		public void SetCharFriendship(int[] data )
+		{
+			if (m_Data.Length<=0)
+			{
+				return;
+			}
+			int adr = CharAdr + 0x218;
+			for(int i=0; i<data.Length;i++)
+			{
+				int v = data[i];
+				m_Data[adr + 0] = (byte)(v & 0xFF);
+				m_Data[adr + 1] = (byte)((v >>8) & 0xFF);
+				m_Data[adr + 2] = (byte)((v >>16) & 0xFF);
+				m_Data[adr + 3] = (byte)((v >>24) & 0xFF);
+				adr += 4;
 			}
 		}
-		
-		 // *******************************************************************************************
-		 public int Mana
-		{
-			get { return GetIntData(0x5E); }
-		}
-		 // *******************************************************************************************
-		 public int Coin
-		{
-			get { return GetIntData(0x56); }
-		}
-		 public int Karuma
-		{
-			get { return GetIntData(0x62); }
-		}
-		*/
 		// *******************************************************************************************
 		public int[] FindByte(byte v)
 		{

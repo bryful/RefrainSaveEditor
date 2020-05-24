@@ -259,7 +259,13 @@ namespace RefrainCTE
 			{
 				bool ok = false;
 				Point p = pref.GetPoint("Point", out ok);
-				if (ok) this.Location = p;
+				if (ok)
+				{
+					if (p.X < 0) p.X = 0;
+					if (p.Y < 0) p.Y = 0;
+
+					this.Location = p;
+				}
 			}
 		}
 

@@ -357,5 +357,15 @@ namespace RefrainSaveEditor
 		{
 			
 		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			FriendshipEditDialog dlg = new FriendshipEditDialog();
+			dlg.SetRefrainSaveFile(refrainSaveFile1);
+			if(dlg.ShowDialog() == DialogResult.OK)
+			{
+				refrainSaveFile1.SetCharFriendship(dlg.Friendships);
+			}
+		}
 	}
 }
